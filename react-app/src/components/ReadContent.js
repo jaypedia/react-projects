@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Content({ title, desc }) {
+function ReadContent({ title, desc }) {
   return (
     <div className="content">
       <h2>{title}</h2>
@@ -20,4 +20,4 @@ function Content({ title, desc }) {
 //   }
 // }
 
-export default Content;
+export default ReadContent;

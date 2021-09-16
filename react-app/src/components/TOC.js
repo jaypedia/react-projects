@@ -1,5 +1,6 @@
 import React from 'react';
 
+// function Component
 // function TOC({ onChangePage, data }) {
 //   console.log(data);
 //   return (
@@ -16,7 +17,20 @@ import React from 'react';
 // }
 
 class TOC extends React.Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    // console.log(
+    //   '=====> TOC shouldComponentUpdate',
+    //   this.props.data,
+    //   nextProps.data
+    // );
+    if (this.props.data === nextProps.data) {
+      return false;
+    }
+    return true;
+  }
+
   render() {
+    // console.log('TOC render');
     let lists = [];
     const { data, onChangePage } = this.props;
     let i = 0;
@@ -29,7 +43,7 @@ class TOC extends React.Component {
             onClick={function (e) {
               e.preventDefault();
               onChangePage(e.target.dataset.id);
-            }.bind(this)}
+            }}
           >
             {data[i].title}
           </a>
