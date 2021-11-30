@@ -84,6 +84,7 @@ function App() {
           Publish
         </button>
       </div>
+      <Profile></Profile>
     </div>
   );
 }
@@ -99,3 +100,23 @@ function Modal(props) {
 }
 
 export default App;
+
+class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: 'Millie' };
+  }
+
+  changeName() {
+    this.setState({ name: 'Jay' });
+  }
+
+  render() {
+    return (
+      <>
+        <span>I'm {this.state.name}</span>
+        <button onClick={this.changeName.bind(this)}>Change Name</button>
+      </>
+    );
+  }
+}
