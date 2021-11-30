@@ -18,6 +18,8 @@ function App() {
 
   let [clickedTitle, changeClickedTitle] = useState(0);
 
+  let [inputValue, changeInputValue] = useState('');
+
   function changeMyTitle() {
     let newArr = [...title];
     newArr.sort();
@@ -42,7 +44,7 @@ function App() {
       <button onClick={changeMyTitle}>Sort</button>
 
       {title.map((t, i) => (
-        <div className="list">
+        <div className="list" key={i}>
           <h3
             onClick={() => {
               changeClickedTitle(i);
@@ -65,6 +67,23 @@ function App() {
         </div>
       ))}
       {modal ? <Modal title={title} clickedTitle={clickedTitle}></Modal> : null}
+      <div className="publish">
+        <input
+          onChange={e => {
+            changeInputValue(e.target.value);
+          }}
+        />
+        <button
+          onClick={e => {
+            let newArr = [...title];
+            newArr.unshift(inputValue);
+            changeTitle(newArr);
+            e.target.previousElementSibling.value = '';
+          }}
+        >
+          Publish
+        </button>
+      </div>
     </div>
   );
 }
