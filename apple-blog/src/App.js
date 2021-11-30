@@ -16,6 +16,8 @@ function App() {
 
   let [modal, changeModal] = useState(false);
 
+  let [clickedTitle, changeClickedTitle] = useState(0);
+
   function changeMyTitle() {
     let newArr = [...title];
     newArr.sort();
@@ -38,17 +40,15 @@ function App() {
         <div>Dev Blog</div>
       </div>
       <button onClick={changeMyTitle}>Sort</button>
-      <button
-        onClick={() => {
-          changeModal(!modal);
-        }}
-      >
-        Modal
-      </button>
-      {modal ? <Modal></Modal> : null}
+
       {title.map((t, i) => (
         <div className="list">
-          <h3>
+          <h3
+            onClick={() => {
+              changeClickedTitle(i);
+              changeModal(!modal);
+            }}
+          >
             {' '}
             {t}{' '}
             <span
@@ -64,14 +64,15 @@ function App() {
           <hr />
         </div>
       ))}
+      {modal ? <Modal title={title} clickedTitle={clickedTitle}></Modal> : null}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
     <div className="modal">
-      <h2>제목</h2>
+      <h2>{props.title[props.clickedTitle]}</h2>
       <p>날짜</p>
       <p>상세내용</p>
     </div>

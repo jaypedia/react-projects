@@ -19,8 +19,12 @@
   padding-right: 20px;
 }
 
-.modal{
-  margin-top : 20px;
-  padding : 20px;
-  background : #eee;
+.list h3 {
+  cursor: pointer;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: #eee;
 }
