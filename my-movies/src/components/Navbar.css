@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #e7e5d7;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.navbar__home {
+  text-decoration: none;
+  color: black;
+}
