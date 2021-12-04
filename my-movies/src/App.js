@@ -9,7 +9,7 @@ function App() {
   return (
     <HashRouter>
       <Navbar></Navbar>
-      {/* <Route path="/" exact component={Home}></Route> */}
+      <Route path="/" exact component={Home}></Route>
       <Route path="/detail" component={Detail}></Route>
     </HashRouter>
   );

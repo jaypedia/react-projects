@@ -1,0 +1,14 @@
+{
+  "movies": [
+    {
+      "title": "랑종",
+      "year": 2021,
+      "summary": "태국 북동부 ‘이산’ 지역 낯선 시골 마을",
+      "director": "반종 피산다나쿤",
+      "categories": ["공포", "스릴러"],
+      "rating": 7.6,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    }
+  ]
+}
+
