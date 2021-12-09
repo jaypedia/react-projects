@@ -18,8 +18,8 @@ function Movie({
         <h3 className="movie__title-year">
           {title} ({year})
         </h3>
-        <h4 className="movie__rating">{rating}</h4>
-        <p className="movie__director">{director}</p>
+        <h4 className="movie__rating">✿ {rating}</h4>
+        <h3 className="movie__director">{director}</h3>
         <ul className="movie__categories">
           {categories.map((category, index) => {
             return (

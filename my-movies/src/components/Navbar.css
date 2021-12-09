@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #d3dff8;
+  background-color: var(--color-light-sky);
   padding: 20px;
   font-weight: bold;
   font-size: 25px;
@@ -7,5 +7,5 @@
 
 .navbar__home {
   text-decoration: none;
-  color: black;
+  color: var(--color-black);
 }
