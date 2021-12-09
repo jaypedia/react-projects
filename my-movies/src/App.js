@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
-import { HashRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './routes/Home';
-import Detail from './routes/Detail';
+import Home from './pages/home/Home';
+import Detail from './pages/detail/Detail';
 
 function App() {
   return (
-    <HashRouter>
-      <Navbar></Navbar>
-      <Route path="/" exact component={Home}></Route>
-      <Route path="/detail" component={Detail}></Route>
-    </HashRouter>
+    <BrowserRouter>
+      <Navbar />
+      <Route path="/" exact component={Home} />
+      <Route path="/detail" component={Detail} />
+    </BrowserRouter>
   );
 }
 
