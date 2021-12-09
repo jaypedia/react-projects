@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Movie from './Movie';
-import './Home.css';
+import './index.css';
 
 function Home() {
   const [movies, setMovie] = useState();
