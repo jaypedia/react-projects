@@ -9,11 +9,11 @@ function Movie({
   director,
   categories,
   rating,
-  poster,
+  imageUrl,
 }) {
   return (
     <div className="movie">
-      <img src={poster} alt={title} title={title} />
+      <img src={imageUrl} alt={title} title={title} />
       <div className="movie__data">
         <h3 className="movie__title-year">
           {title} ({year})

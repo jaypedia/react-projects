@@ -11,7 +11,6 @@ function Home() {
     let completed = false;
     const getMovies = async () => {
       const response = await axios.get('http://localhost:4000/movies');
-      //  setMovie(response.data);
       if (!completed) {
         setMovie(response.data);
         setIsLoading(false);
@@ -32,19 +31,7 @@ function Home() {
       ) : (
         <div className="movies">
           {movies.map(movie => {
-            return (
-              <Movie
-                key={movie.id}
-                id={movie.id}
-                title={movie.title}
-                year={movie.year}
-                summary={movie.summary}
-                director={movie.director}
-                categories={movie.categories}
-                rating={movie.rating}
-                poster={movie.imageUrl}
-              />
-            );
+            return <Movie key={movie.id} {...movie} />;
           })}
         </div>
       )}
