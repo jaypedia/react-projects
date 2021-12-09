@@ -29,6 +29,66 @@
       "categories": ["Documentary", "Life"],
       "rating": 9,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Dangal",
+      "year": 2016,
+      "summary": "Indian Hindi-language biographical sports drama film",
+      "director": "Nitesh Tiwari",
+      "categories": ["Drama", "Action"],
+      "rating": 8.4,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Spy",
+      "year": 2015,
+      "summary": "American action comedy spy film",
+      "director": "Paul Feig",
+      "categories": ["Action", "Comedy"],
+      "rating": 7.6,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 6,
+      "title": "RBG",
+      "year": 2018,
+      "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
+      "director": "Betsy West, Julie Cohen",
+      "categories": ["Documentary", "Life"],
+      "rating": 9,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 7,
+      "title": "Dangal",
+      "year": 2016,
+      "summary": "Indian Hindi-language biographical sports drama film",
+      "director": "Nitesh Tiwari",
+      "categories": ["Drama", "Action"],
+      "rating": 8.4,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Spy",
+      "year": 2015,
+      "summary": "American action comedy spy film",
+      "director": "Paul Feig",
+      "categories": ["Action", "Comedy"],
+      "rating": 7.6,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 9,
+      "title": "RBG",
+      "year": 2018,
+      "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
+      "director": "Betsy West, Julie Cohen",
+      "categories": ["Documentary", "Life"],
+      "rating": 9,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
     }
   ]
 }
