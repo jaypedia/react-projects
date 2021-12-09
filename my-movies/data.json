@@ -1,14 +1,34 @@
 {
   "movies": [
     {
-      "title": "랑종",
-      "year": 2021,
-      "summary": "태국 북동부 ‘이산’ 지역 낯선 시골 마을",
-      "director": "반종 피산다나쿤",
-      "categories": ["공포", "스릴러"],
+      "id": 1,
+      "title": "Dangal",
+      "year": 2016,
+      "summary": "Indian Hindi-language biographical sports drama film",
+      "director": "Nitesh Tiwari",
+      "categories": ["Drama", "Action"],
+      "rating": 8.4,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Spy",
+      "year": 2015,
+      "summary": "American action comedy spy film",
+      "director": "Paul Feig",
+      "categories": ["Action", "Comedy"],
       "rating": 7.6,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+    },
+    {
+      "id": 3,
+      "title": "RBG",
+      "year": 2018,
+      "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
+      "director": "Betsy West, Julie Cohen",
+      "categories": ["Documentary", "Life"],
+      "rating": 9,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
     }
   ]
 }
-
