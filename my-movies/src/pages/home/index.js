@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
+import Searchbar from './Searchbar';
 
 function Home() {
   const [movies, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  // Try
+  const search = () => {
+    console.log('Searching');
+  };
 
   useEffect(() => {
     let completed = false;
@@ -24,6 +30,7 @@ function Home() {
 
   return (
     <section className="container">
+      <Searchbar onSearch={search} />
       {isLoading ? (
         <div className="loader">
           <span className="loader__text">Loading...🎬</span>
