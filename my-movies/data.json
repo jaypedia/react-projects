@@ -8,7 +8,8 @@
       "director": "Nitesh Tiwari",
       "categories": ["Drama", "Action"],
       "rating": 8.4,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "director": "Paul Feig",
       "categories": ["Action", "Comedy"],
       "rating": 7.6,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Spy is a 2015 American action comedy spy film written and directed by Paul Feig. Starring Melissa McCarthy, Jason Statham, Rose Byrne, Miranda Hart, Bobby Cannavale, Allison Janney, and Jude Law. It follows unorthodox secret agent Susan Cooper (McCarthy) as she tries to trace a stolen portable nuclear device Produced by Peter Chernin, Jenno Topping, Feig, and Jessie Henderson, the film was premiere of SXSW Festival in March 15, 2015 and on theatrically released in the United States on June 5, 2015. It received positive reviews from critics and grossed $235 million worldwide."
     },
     {
       "id": 3,
@@ -28,7 +30,8 @@
       "director": "Betsy West, Julie Cohen",
       "categories": ["Documentary", "Life"],
       "rating": 9,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
     },
     {
       "id": 4,
@@ -38,7 +41,8 @@
       "director": "Nitesh Tiwari",
       "categories": ["Drama", "Action"],
       "rating": 8.4,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
     {
       "id": 5,
@@ -48,7 +52,8 @@
       "director": "Paul Feig",
       "categories": ["Action", "Comedy"],
       "rating": 7.6,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Spy is a 2015 American action comedy spy film written and directed by Paul Feig. Starring Melissa McCarthy, Jason Statham, Rose Byrne, Miranda Hart, Bobby Cannavale, Allison Janney, and Jude Law. It follows unorthodox secret agent Susan Cooper (McCarthy) as she tries to trace a stolen portable nuclear device Produced by Peter Chernin, Jenno Topping, Feig, and Jessie Henderson, the film was premiere of SXSW Festival in March 15, 2015 and on theatrically released in the United States on June 5, 2015. It received positive reviews from critics and grossed $235 million worldwide."
     },
     {
       "id": 6,
@@ -58,7 +63,8 @@
       "director": "Betsy West, Julie Cohen",
       "categories": ["Documentary", "Life"],
       "rating": 9,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
     },
     {
       "id": 7,
@@ -68,7 +74,8 @@
       "director": "Nitesh Tiwari",
       "categories": ["Drama", "Action"],
       "rating": 8.4,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
     {
       "id": 8,
@@ -78,7 +85,8 @@
       "director": "Paul Feig",
       "categories": ["Action", "Comedy"],
       "rating": 7.6,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Spy is a 2015 American action comedy spy film written and directed by Paul Feig. Starring Melissa McCarthy, Jason Statham, Rose Byrne, Miranda Hart, Bobby Cannavale, Allison Janney, and Jude Law. It follows unorthodox secret agent Susan Cooper (McCarthy) as she tries to trace a stolen portable nuclear device Produced by Peter Chernin, Jenno Topping, Feig, and Jessie Henderson, the film was premiere of SXSW Festival in March 15, 2015 and on theatrically released in the United States on June 5, 2015. It received positive reviews from critics and grossed $235 million worldwide."
     },
     {
       "id": 9,
@@ -88,7 +96,8 @@
       "director": "Betsy West, Julie Cohen",
       "categories": ["Documentary", "Life"],
       "rating": 9,
-      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg"
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
     }
   ]
 }
