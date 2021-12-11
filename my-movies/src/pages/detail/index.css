@@ -1,0 +1,22 @@
+.ant-layout-header {
+  width: 1000px;
+  height: 100px;
+  /* color: #fff; 적용 안됨 */
+  background: #2023ee;
+}
+.ant-layout-sider {
+  color: #fff;
+  line-height: 120px;
+  background: #e9e63b;
+}
+.ant-layout-content {
+  min-height: 120px;
+  height: 500px;
+  color: #fff;
+  line-height: 120px;
+  background: rgb(233, 150, 16);
+}
+
+img {
+  width: 200px;
+}
