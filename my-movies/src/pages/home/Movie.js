@@ -2,33 +2,10 @@ import React from 'react';
 import './Movie.css';
 import { Link } from 'react-router-dom';
 
-function Movie({
-  id,
-  title,
-  year,
-  summary,
-  director,
-  categories,
-  rating,
-  imageUrl,
-  description,
-}) {
+function Movie({ id, title, year, director, categories, rating, imageUrl }) {
   return (
     <div className="movie">
-      <Link
-        to={{
-          pathname: `/detail/${id}`,
-          state: {
-            title,
-            year,
-            director,
-            categories,
-            rating,
-            imageUrl,
-            description,
-          },
-        }}
-      >
+      <Link to={{ pathname: `/detail/${id}` }}>
         <img src={imageUrl} alt={title} title={title} />
         <div className="movie__data">
           <h3 className="movie__title-year">
