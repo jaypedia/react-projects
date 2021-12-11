@@ -1,18 +1,14 @@
 .movie {
   display: flex;
   flex-direction: column;
-  max-width: 300px;
-  width: 100%;
-  height: 500px;
   cursor: pointer;
   border: 1px solid var(--color-light-sky);
   background-color: var(--color-white);
   padding: 0px;
-  margin: 60px;
   box-shadow: 0 13px 20px -5px rgba(201, 201, 207, 0.1),
     0 8px 16px -8px rgba(0, 0, 0, 0.1);
-
   position: relative;
+  flex: 1 0 20%;
 }
 
 .movie:hover {
@@ -41,7 +37,7 @@
 
 .movie__rating {
   position: absolute;
-  top: 0px;
+  top: 10px;
   right: 20px;
   border-radius: 20px;
   background-color: var(--color-light-sky);
