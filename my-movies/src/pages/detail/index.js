@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
-import { Layout } from 'antd';
+import { Row, Col } from 'antd';
 import { useParams } from 'react-router-dom';
 
 function Detail() {
-  const { Header, Sider, Content } = Layout;
   const params = useParams();
   const [movie, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -34,8 +33,8 @@ function Detail() {
           <span className="loader__text">Loading...🎬</span>
         </div>
       ) : (
-        <Layout>
-          <Sider>
+        <Row>
+          <Col span={4}>
             <div className="detail__img-director-categories">
               <img
                 className="detail__img"
@@ -59,21 +58,21 @@ function Detail() {
                 </p>
               </div>
             </div>
-          </Sider>
-          <Layout>
-            <Header>
+          </Col>
+          <Col span={20}>
+            <Row>
               <div className="detail__title-rating">
                 <h1 className="detail__title-year">
                   {movie.title} ({movie.year})
                 </h1>
                 <h1 className="detail__rating">✿ {movie.rating}</h1>
               </div>
-            </Header>
-            <Content>
+            </Row>
+            <Row>
               <div className="detail__summary">{movie.description}</div>
-            </Content>
-          </Layout>
-        </Layout>
+            </Row>
+          </Col>
+        </Row>
       )}
     </div>
   );
