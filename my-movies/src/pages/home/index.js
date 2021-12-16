@@ -8,11 +8,6 @@ function Home() {
   const [movies, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  // Try
-  const search = () => {
-    console.log('Searching');
-  };
-
   useEffect(() => {
     let completed = false;
     const getMovies = async () => {
@@ -23,14 +18,27 @@ function Home() {
       }
     };
     getMovies();
-    return () => {
-      completed = true;
-    };
+    return () => (completed = true);
   }, []);
+
+  // 코드의 중복
+  const handleMovieSearch = inputValue => {
+    let completed = false;
+    const getMovies = async () => {
+      const response = await axios.get('http://localhost:4000/movies');
+      const filteredMovies = response.data.filter(v => v.title === inputValue);
+      if (!completed) {
+        setMovie(filteredMovies);
+        setIsLoading(false);
+      }
+    };
+    getMovies();
+    return () => (completed = true);
+  };
 
   return (
     <section className="container">
-      <Searchbar onSearch={search} />
+      <Searchbar onSearch={handleMovieSearch} />
       {isLoading ? (
         <div className="loader">
           <span className="loader__text">Loading...🎬</span>
