@@ -2,7 +2,7 @@ import React from 'react';
 import './Movie.css';
 import { Link } from 'react-router-dom';
 
-function Movie({ id, title, year, director, categories, rating, imageUrl }) {
+function Movie({ id, title, year, director, ganre, rating, imageUrl }) {
   return (
     <div className="movie">
       <Link to={{ pathname: `/detail/${id}` }}>
@@ -13,15 +13,7 @@ function Movie({ id, title, year, director, categories, rating, imageUrl }) {
           </h3>
           <h4 className="movie__rating">✿ {rating}</h4>
           <h3 className="movie__director">{director}</h3>
-          <ul className="movie__categories">
-            {categories.map((category, index) => {
-              return (
-                <li className="categories__category" key={index}>
-                  {category}
-                </li>
-              );
-            })}
-          </ul>
+          <p className="movie__genre">{ganre}</p>
         </div>
       </Link>
     </div>

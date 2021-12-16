@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import { Pagination } from 'antd';
+import { Row, Pagination, Button } from 'antd';
 
 function Home() {
   const [movies, setMovie] = useState();
@@ -22,8 +22,7 @@ function Home() {
     return () => (completed = true);
   }, []);
 
-  // 코드의 중복
-  // inputValue 대소문자 구별 없이 검색할 수 있게 하려면?
+  // 코드의 중복 해결하기
   const handleMovieSearch = inputValue => {
     let completed = false;
     const getMovies = async () => {
@@ -42,7 +41,20 @@ function Home() {
 
   return (
     <section className="container">
-      <Searchbar onSearch={handleMovieSearch} />
+      <Row>
+        <Searchbar onSearch={handleMovieSearch} />
+        <Button
+          className="add-movies"
+          size="large"
+          style={{
+            backgroundColor: '#c5d2ec',
+            borderRadius: '20px',
+            fontWeight: 'bold',
+          }}
+        >
+          Add new movie
+        </Button>
+      </Row>
       {isLoading ? (
         <div className="loader">
           <span className="loader__text">Loading...🎬</span>
