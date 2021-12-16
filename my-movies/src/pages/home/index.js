@@ -22,11 +22,14 @@ function Home() {
   }, []);
 
   // 코드의 중복
+  // inputValue 대소문자 구별 없이 검색할 수 있게 하려면?
   const handleMovieSearch = inputValue => {
     let completed = false;
     const getMovies = async () => {
       const response = await axios.get('http://localhost:4000/movies');
-      const filteredMovies = response.data.filter(v => v.title === inputValue);
+      const filteredMovies = response.data.filter(v =>
+        v.title.includes(inputValue)
+      );
       if (!completed) {
         setMovie(filteredMovies);
         setIsLoading(false);
