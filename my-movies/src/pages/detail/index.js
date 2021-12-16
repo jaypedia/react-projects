@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
-import { Row, Col } from 'antd';
+import { Row, Col, Button } from 'antd';
 import { useParams } from 'react-router-dom';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 function Detail() {
   const params = useParams();
@@ -35,7 +36,7 @@ function Detail() {
       ) : (
         <Row>
           <Col span={4}>
-            <div className="detail__img-director-categories">
+            <div className="detail__img-director-ganre">
               <img
                 className="detail__img"
                 src={movie.imageUrl}
@@ -43,19 +44,11 @@ function Detail() {
               ></img>
               <div className="detail__director">
                 <h3 className="detail__director-title">Director</h3>
-                <p className="detail__director">{movie.director}</p>
+                <p className="detail__director-name">{movie.director}</p>
               </div>
-              <div className="detail__categories">
-                <h3 className="detail__categories-title">Categories</h3>
-                <p className="detail__categorie-box">
-                  {movie.categories.map((c, i) => {
-                    return (
-                      <li className="detail__category" key={i}>
-                        {c}
-                      </li>
-                    );
-                  })}
-                </p>
+              <div className="detail__ganre">
+                <h3 className="detail__ganre-title">Ganre</h3>
+                <p className="detail__ganre-type">{movie.ganre}</p>
               </div>
             </div>
           </Col>
@@ -72,6 +65,12 @@ function Detail() {
               <div className="detail__summary">{movie.description}</div>
             </Row>
           </Col>
+          <Button>
+            <EditOutlined />
+          </Button>
+          <Button>
+            <DeleteOutlined />
+          </Button>
         </Row>
       )}
     </div>
