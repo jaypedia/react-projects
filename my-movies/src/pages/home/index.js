@@ -3,6 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
+import { Pagination } from 'antd';
 
 function Home() {
   const [movies, setMovie] = useState();
@@ -53,6 +54,7 @@ function Home() {
           })}
         </div>
       )}
+      <Pagination defaultCurrent={1} total={50} />
     </section>
   );
 }
