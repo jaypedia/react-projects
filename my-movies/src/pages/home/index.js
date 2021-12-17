@@ -10,6 +10,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState();
   const [ganre, setGanre] = useState();
+  const [curPage, setCurPage] = useState();
 
   useEffect(() => {
     let completed = false;
@@ -18,13 +19,13 @@ function Home() {
         params: { title, ganre },
       });
       if (!completed) {
-        setMovie(response.data);
+        setMovie(response.data.slice(4 * (curPage - 1), 4 * curPage));
         setIsLoading(false);
       }
     };
     getMovies(inputValue);
     return () => (completed = true);
-  }, [inputValue, ganre]);
+  }, [inputValue, ganre, curPage]);
 
   return (
     <section className="container">
@@ -53,7 +54,7 @@ function Home() {
           })}
         </div>
       )}
-      <Pagination defaultCurrent={1} total={50} />
+      <Pagination defaultCurrent={1} total={50} onChange={setCurPage} />
     </section>
   );
 }

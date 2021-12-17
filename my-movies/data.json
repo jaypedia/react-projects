@@ -98,6 +98,28 @@
       "rating": 9.0,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
+    },
+    {
+      "id": 10,
+      "title": "Dangal",
+      "year": 2016,
+      "summary": "Indian Hindi-language biographical sports drama film",
+      "director": "Nitesh Tiwari",
+      "ganre": "Drama",
+      "rating": 8.4,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
+    },
+    {
+      "id": 11,
+      "title": "Dangal",
+      "year": 2016,
+      "summary": "Indian Hindi-language biographical sports drama film",
+      "director": "Nitesh Tiwari",
+      "ganre": "Drama",
+      "rating": 8.4,
+      "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
+      "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     }
   ]
 }
