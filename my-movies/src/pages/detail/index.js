@@ -38,7 +38,7 @@ function Detail({ history }) {
       okType: 'danger',
       onOk() {
         history.push('/');
-        // 해당 영화 삭제
+        axios.delete(`http://localhost:4000/movies/${params.id}`);
       },
     });
   }
