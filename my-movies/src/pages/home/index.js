@@ -8,41 +8,28 @@ import { Row, Pagination, Button } from 'antd';
 function Home() {
   const [movies, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [inputValue, setInputValue] = useState();
+  const [ganre, setGanre] = useState();
 
   useEffect(() => {
     let completed = false;
-    const getMovies = async () => {
-      const response = await axios.get('http://localhost:4000/movies');
+    const getMovies = async title => {
+      const response = await axios.get('http://localhost:4000/movies', {
+        params: { title, ganre },
+      });
       if (!completed) {
         setMovie(response.data);
         setIsLoading(false);
       }
     };
-    getMovies();
+    getMovies(inputValue);
     return () => (completed = true);
-  }, []);
-
-  // 코드의 중복 해결하기
-  const handleMovieSearch = inputValue => {
-    let completed = false;
-    const getMovies = async () => {
-      const response = await axios.get('http://localhost:4000/movies');
-      const filteredMovies = response.data.filter(v =>
-        v.title.includes(inputValue)
-      );
-      if (!completed) {
-        setMovie(filteredMovies);
-        setIsLoading(false);
-      }
-    };
-    getMovies();
-    return () => (completed = true);
-  };
+  }, [inputValue, ganre]);
 
   return (
     <section className="container">
       <Row>
-        <Searchbar onSearch={handleMovieSearch} />
+        <Searchbar onSearch={setInputValue} filterGanre={setGanre} />
         <Button
           className="add-movies"
           size="large"
