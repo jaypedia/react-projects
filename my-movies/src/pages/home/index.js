@@ -3,7 +3,8 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import { Row, Pagination, Button } from 'antd';
+import AddBtn from './AddBtn';
+import { Row, Pagination } from 'antd';
 
 function Home() {
   const [movies, setMovie] = useState();
@@ -44,17 +45,7 @@ function Home() {
           filterGanre={setGanre}
           sort={setSort}
         />
-        <Button
-          className="add-movies"
-          size="large"
-          style={{
-            backgroundColor: '#c5d2ec',
-            borderRadius: '20px',
-            fontWeight: 'bold',
-          }}
-        >
-          Add new movie
-        </Button>
+        <AddBtn />
       </Row>
       {isLoading ? (
         <div className="loader">
