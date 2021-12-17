@@ -26,7 +26,7 @@ function Searchbar({ onSearch, filterGanre, sort }) {
       />
 
       <Select
-        defaultValue="Genre"
+        defaultValue="Ganre"
         style={{ width: '12%' }}
         size="large"
         onChange={filterGanre}
