@@ -11,6 +11,7 @@ function Home() {
   const [inputValue, setInputValue] = useState();
   const [ganre, setGanre] = useState();
   const [curPage, setCurPage] = useState(1);
+  const [sort, setSort] = useState();
 
   useEffect(() => {
     let completed = false;
@@ -18,19 +19,31 @@ function Home() {
       const response = await axios.get('http://localhost:4000/movies', {
         params: { title, ganre },
       });
+
       if (!completed) {
         setMovie(response.data.slice(4 * (curPage - 1), 4 * curPage));
         setIsLoading(false);
       }
+
+      if (sort === 'year') {
+        const sortedArr = [...movies].sort((a, b) => a.year - b.year);
+        setMovie(sortedArr);
+      }
     };
+
     getMovies(inputValue);
+
     return () => (completed = true);
-  }, [inputValue, ganre, curPage]);
+  }, [inputValue, ganre, curPage, sort]);
 
   return (
     <section className="container">
       <Row>
-        <Searchbar onSearch={setInputValue} filterGanre={setGanre} />
+        <Searchbar
+          onSearch={setInputValue}
+          filterGanre={setGanre}
+          sort={setSort}
+        />
         <Button
           className="add-movies"
           size="large"
