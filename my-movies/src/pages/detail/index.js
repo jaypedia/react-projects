@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './index.css';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button, Modal } from 'antd';
 import { useParams } from 'react-router-dom';
-import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
-function Detail() {
+function Detail({ history }) {
   const params = useParams();
   const [movie, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const { confirm } = Modal;
 
   useEffect(() => {
     let completed = false;
@@ -26,6 +28,20 @@ function Detail() {
       completed = true;
     };
   }, []);
+
+  function showDeleteConfirm() {
+    confirm({
+      title: 'Are you sure delete this movie?',
+      icon: <ExclamationCircleOutlined />,
+      cancelText: 'No',
+      okText: 'Yes',
+      okType: 'danger',
+      onOk() {
+        history.push('/');
+        // 해당 영화 삭제
+      },
+    });
+  }
 
   return (
     <div className="detail">
@@ -65,11 +81,9 @@ function Detail() {
               <div className="detail__summary">{movie.description}</div>
             </Row>
           </Col>
-          <Button>
-            <EditOutlined />
-          </Button>
-          <Button>
-            <DeleteOutlined />
+          <Button>Edit</Button>
+          <Button onClick={showDeleteConfirm} type="dashed">
+            Delete
           </Button>
         </Row>
       )}

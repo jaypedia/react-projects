@@ -10,7 +10,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState();
   const [ganre, setGanre] = useState();
-  const [curPage, setCurPage] = useState();
+  const [curPage, setCurPage] = useState(1);
 
   useEffect(() => {
     let completed = false;
