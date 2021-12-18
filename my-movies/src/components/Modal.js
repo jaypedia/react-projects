@@ -14,7 +14,9 @@ import {
 import { UploadOutlined } from '@ant-design/icons';
 
 function MovieModal({ visible, onOk, onCancel }) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [rating, setRating] = useState(0);
+
   const normFile = e => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
@@ -23,14 +25,23 @@ function MovieModal({ visible, onOk, onCancel }) {
     return e && e.fileList;
   };
 
+  const [form] = Form.useForm();
+
+  const handleOk = () => {
+    const values = form.getFieldsValue(true);
+    console.log('val', values);
+    setIsModalVisible(false);
+  };
+
   return (
     <Modal
       title="Add New Movie"
       visible={visible}
-      onOk={onOk}
+      onOk={handleOk}
+      getContainer={true}
       onCancel={onCancel}
     >
-      <Form>
+      <Form form={form}>
         <Row gutter={20}>
           <Col span={12}>
             <Form.Item name="title" label="Title">
