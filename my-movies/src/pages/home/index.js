@@ -24,9 +24,9 @@ function Home() {
         params: { title, ganre, _page, _sort, _limit: PAGE_LIMIT },
       });
 
-      const totalMovie = await axios.get(
-        'http://localhost:4000/movies?_start=0'
-      );
+      // 아이템 총 개수에 맞게 페이지 수 렌더링하기
+      // 중복 해결할 수 있는 방법은?
+      const totalMovie = await axios.get('http://localhost:4000/movies');
 
       if (!completed) {
         setTotal(totalMovie.data.length);
@@ -40,6 +40,13 @@ function Home() {
     return () => (completed = true);
   }, [inputValue, ganre, _page, _sort]);
 
+  function handleReload() {
+    setInputValue();
+    setGanre();
+    setPage(1);
+    setSort();
+  }
+
   return (
     <section className="container">
       <Row>
@@ -47,6 +54,7 @@ function Home() {
           onSearch={setInputValue}
           filterGanre={setGanre}
           sort={setSort}
+          reload={handleReload}
         />
         <AddBtn />
       </Row>

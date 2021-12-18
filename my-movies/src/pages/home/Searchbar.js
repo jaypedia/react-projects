@@ -1,9 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Input, Select, Row, Menu, Button, Dropdown } from 'antd';
+import { Input, Select, Row, Button } from 'antd';
 import './Searchbar.css';
+import { ReloadOutlined } from '@ant-design/icons';
 
-function Searchbar({ onSearch, filterGanre, sort }) {
+function Searchbar({ onSearch, filterGanre, sort, reload }) {
   const { Search } = Input;
   const { Option } = Select;
 
@@ -38,6 +39,9 @@ function Searchbar({ onSearch, filterGanre, sort }) {
         <Option value="year">year</Option>
         <Option value="rating">star</Option>
       </Select>
+      <Button size="large" onClick={reload}>
+        <ReloadOutlined />
+      </Button>
     </Row>
   );
 }
