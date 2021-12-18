@@ -39,7 +39,7 @@ function Searchbar({ onSearch, filterGanre, sort, reload }) {
         <Option value="year">year</Option>
         <Option value="rating">star</Option>
       </Select>
-      <Button size="large" onClick={reload}>
+      <Button className="reload" size="large" onClick={reload}>
         <ReloadOutlined />
       </Button>
     </Row>

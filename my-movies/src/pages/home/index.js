@@ -26,7 +26,11 @@ function Home() {
 
       // 아이템 총 개수에 맞게 페이지 수 렌더링하기
       // 중복 해결할 수 있는 방법은?
-      const totalMovie = await axios.get('http://localhost:4000/movies');
+
+      // ganre 필터링 시 개수에 맞게 페이지네이션 할 수 있도록 params에 ganre 추가
+      const totalMovie = await axios.get('http://localhost:4000/movies', {
+        params: { ganre },
+      });
 
       if (!completed) {
         setTotal(totalMovie.data.length);
