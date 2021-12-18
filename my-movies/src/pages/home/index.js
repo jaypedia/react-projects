@@ -12,30 +12,25 @@ function Home() {
   const [inputValue, setInputValue] = useState();
   const [ganre, setGanre] = useState();
   const [curPage, setCurPage] = useState(1);
-  const [sort, setSort] = useState();
+  const [_sort, setSort] = useState();
 
   useEffect(() => {
     let completed = false;
     const getMovies = async title => {
       const response = await axios.get('http://localhost:4000/movies', {
-        params: { title, ganre },
+        params: { title, ganre, _sort },
       });
 
       if (!completed) {
         setMovie(response.data.slice(4 * (curPage - 1), 4 * curPage));
         setIsLoading(false);
       }
-
-      if (sort === 'year') {
-        const sortedArr = [...movies].sort((a, b) => a.year - b.year);
-        setMovie(sortedArr);
-      }
     };
 
     getMovies(inputValue);
 
     return () => (completed = true);
-  }, [inputValue, ganre, curPage, sort]);
+  }, [inputValue, ganre, curPage, _sort]);
 
   return (
     <section className="container">
@@ -58,7 +53,7 @@ function Home() {
           })}
         </div>
       )}
-      <Pagination defaultCurrent={1} total={50} onChange={setCurPage} />
+      <Pagination defaultCurrent={1} total={30} onChange={setCurPage} />
     </section>
   );
 }

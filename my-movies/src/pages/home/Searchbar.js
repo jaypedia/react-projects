@@ -7,14 +7,6 @@ function Searchbar({ onSearch, filterGanre, sort }) {
   const { Search } = Input;
   const { Option } = Select;
 
-  const menu = (
-    <Menu>
-      <Menu.Item key="1">title</Menu.Item>
-      <Menu.Item key="2">year</Menu.Item>
-      <Menu.Item key="3">star</Menu.Item>
-    </Menu>
-  );
-
   return (
     <Row>
       <Search
@@ -44,12 +36,8 @@ function Searchbar({ onSearch, filterGanre, sort }) {
       >
         <Option value="title">title</Option>
         <Option value="year">year</Option>
-        <Option value="star">star</Option>
+        <Option value="rating">star</Option>
       </Select>
-
-      {/* <Dropdown overlay={menu} placement="bottomCenter">
-        <Button size="large">Sort</Button>
-      </Dropdown> */}
     </Row>
   );
 }
