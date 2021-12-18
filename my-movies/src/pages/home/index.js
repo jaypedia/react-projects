@@ -6,23 +6,25 @@ import Searchbar from './Searchbar';
 import AddBtn from './AddBtn';
 import { Row, Pagination } from 'antd';
 
+const PAGE_LIMIT = 4;
+
 function Home() {
   const [movies, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState();
   const [ganre, setGanre] = useState();
-  const [curPage, setCurPage] = useState(1);
+  const [_page, setPage] = useState(1);
   const [_sort, setSort] = useState();
 
   useEffect(() => {
     let completed = false;
     const getMovies = async title => {
       const response = await axios.get('http://localhost:4000/movies', {
-        params: { title, ganre, _sort },
+        params: { title, ganre, _page, _sort, _limit: PAGE_LIMIT },
       });
 
       if (!completed) {
-        setMovie(response.data.slice(4 * (curPage - 1), 4 * curPage));
+        setMovie(response.data);
         setIsLoading(false);
       }
     };
@@ -30,7 +32,7 @@ function Home() {
     getMovies(inputValue);
 
     return () => (completed = true);
-  }, [inputValue, ganre, curPage, _sort]);
+  }, [inputValue, ganre, _page, _sort]);
 
   return (
     <section className="container">
@@ -53,7 +55,7 @@ function Home() {
           })}
         </div>
       )}
-      <Pagination defaultCurrent={1} total={30} onChange={setCurPage} />
+      <Pagination defaultCurrent={1} total={30} onChange={setPage} />
     </section>
   );
 }
