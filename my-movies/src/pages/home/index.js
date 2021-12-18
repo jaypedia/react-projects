@@ -15,6 +15,7 @@ function Home() {
   const [ganre, setGanre] = useState();
   const [_page, setPage] = useState(1);
   const [_sort, setSort] = useState();
+  const [total, setTotal] = useState();
 
   useEffect(() => {
     let completed = false;
@@ -23,7 +24,12 @@ function Home() {
         params: { title, ganre, _page, _sort, _limit: PAGE_LIMIT },
       });
 
+      const totalMovie = await axios.get(
+        'http://localhost:4000/movies?_start=0'
+      );
+
       if (!completed) {
+        setTotal(totalMovie.data.length);
         setMovie(response.data);
         setIsLoading(false);
       }
@@ -55,7 +61,12 @@ function Home() {
           })}
         </div>
       )}
-      <Pagination defaultCurrent={1} total={30} onChange={setPage} />
+      <Pagination
+        defaultCurrent={1}
+        onChange={setPage}
+        total={total}
+        pageSize={PAGE_LIMIT}
+      />
     </section>
   );
 }
