@@ -1,12 +1,14 @@
 /*eslint-disable*/
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Carousel, Container } from 'react-bootstrap';
 import data from './data.js';
 import { Route, Link, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
 import axios from 'axios';
+
+export const StockContext = React.createContext();
 
 function App() {
   const [fruit, setFruit] = useState(data);
@@ -75,11 +77,13 @@ function App() {
         </Carousel>
 
         <div className="container">
-          <div className="row">
-            {fruit.map((v, i) => {
-              return <FruitComponent fruitData={v} key={i} />;
-            })}
-          </div>
+          <StockContext.Provider value={inStock}>
+            <div className="row">
+              {fruit.map((v, i) => {
+                return <FruitComponent fruitData={v} key={i} />;
+              })}
+            </div>
+          </StockContext.Provider>
           <div style={{ display }}>Loading...</div>;
           <button
             className="btn btn-primary"
@@ -103,24 +107,35 @@ function App() {
       </Route>
 
       <Route path="/detail/:id">
-        <Detail
-          fruitData={fruit}
-          inStock={inStock}
-          setInStock={setInStock}
-        ></Detail>
+        <StockContext.Provider value={inStock}>
+          <Detail
+            fruitData={fruit}
+            inStock={inStock}
+            setInStock={setInStock}
+          ></Detail>
+        </StockContext.Provider>
       </Route>
     </div>
   );
 }
 
 function FruitComponent(props) {
+  // const stock = useContext(StockContext);
+
   return (
     <div className="col-md-4">
       <img src={props.fruitData.src} width="100%" />
       <h4>{props.fruitData.title}</h4>
       <p>{props.fruitData.content}</p>
+      {/* <p>Stock : {stock[props.fruitData.id]}</p> */}
+      <Test />
     </div>
   );
+}
+
+function Test() {
+  const stock = useContext(StockContext);
+  return <div>STOCK: {stock}</div>;
 }
 
 export default App;

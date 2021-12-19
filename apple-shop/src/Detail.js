@@ -1,8 +1,9 @@
 /* eslint-disable */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import './Detail.scss';
+import { StockContext } from './App';
 
 const Box = styled.div`
   padding: 30px;
@@ -17,6 +18,8 @@ const Content = styled.span`
 export default function Detail(props) {
   const [display, setDisplay] = useState(true);
   const [inputValue, setInputValue] = useState('');
+
+  const stock = useContext(StockContext);
 
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -63,6 +66,7 @@ export default function Detail(props) {
           <p>{selectedFruit.content}</p>
           <p>{selectedFruit.price}</p>
           <StockInfo inStock={props.inStock} id={id} />
+          {stock}
           <button
             className="btn btn-danger"
             onClick={() => {
