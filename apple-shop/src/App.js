@@ -6,9 +6,11 @@ import { Navbar, Nav, NavDropdown, Carousel, Container } from 'react-bootstrap';
 import data from './data.js';
 import { Route, Link, Switch } from 'react-router-dom';
 import Detail from './Detail.js';
+import axios from 'axios';
 
 function App() {
   const [fruit, setFruit] = useState(data);
+  const [display, setDisplay] = useState('none');
 
   return (
     <div className="App">
@@ -75,6 +77,25 @@ function App() {
               return <FruitComponent fruitData={v} key={i} />;
             })}
           </div>
+          <div style={{ display }}>Loading...</div>;
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setDisplay('block');
+              axios
+                .get('https://codingapple1.github.io/shop/data2.json')
+                .then(response => {
+                  setFruit([...fruit, ...response.data]);
+                  setDisplay('none');
+                })
+                .catch(err => {
+                  console.log(err);
+                  setDisplay('none');
+                });
+            }}
+          >
+            More
+          </button>
         </div>
       </Route>
 
