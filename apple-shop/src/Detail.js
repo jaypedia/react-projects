@@ -16,17 +16,21 @@ const Content = styled.span`
 
 export default function Detail(props) {
   const [display, setDisplay] = useState(true);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log(display);
+    let timer = setTimeout(() => {
       setDisplay(false);
     }, 2000);
-  });
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [display]);
 
   const history = useHistory();
   const { id } = useParams();
   const selectedFruit = props.fruitData.find(f => f.id === +id);
+  const temp = [...props.inStock];
 
   return (
     <div className="container">
@@ -34,9 +38,18 @@ export default function Detail(props) {
         <Content color={'black'}>Detail</Content>
       </Box>
 
-      <div className="my-alert" show={display}>
-        <p>Hurry up! Stock is running out!</p>
-      </div>
+      <input
+        onChange={e => {
+          setInputValue(e.target.value);
+          console.log(inputValue);
+        }}
+      />
+
+      {display ? (
+        <div className="my-alert">
+          <p>Hurry up! Stock is running out!</p>
+        </div>
+      ) : null}
 
       <div className="row">
         <div className="col-md-6">
@@ -49,17 +62,35 @@ export default function Detail(props) {
           <h4 className="pt-5">{selectedFruit.title}</h4>
           <p>{selectedFruit.content}</p>
           <p>{selectedFruit.price}</p>
-          <button className="btn btn-danger">주문하기</button>
+          <StockInfo inStock={props.inStock} id={id} />
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              if (temp[id] <= 0) {
+                alert('Sold out!');
+                return;
+              }
+              --temp[id];
+              props.setInStock(temp);
+            }}
+          >
+            Order
+          </button>
+          &nbsp;
           <button
             className="btn btn-info"
             onClick={() => {
               history.goBack();
             }}
           >
-            뒤로가기
+            Back
           </button>
         </div>
       </div>
     </div>
   );
+}
+
+function StockInfo({ inStock, id }) {
+  return <div>In Stock : {inStock[id]}</div>;
 }

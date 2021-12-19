@@ -11,6 +11,9 @@ import axios from 'axios';
 function App() {
   const [fruit, setFruit] = useState(data);
   const [display, setDisplay] = useState('none');
+  // 중요한 데이터는 상위 컴포넌트에 저장해둔다. 데이터는 위에서 밑으로 흐른다.
+  // 이것을 Detail 내에 data binding
+  const [inStock, setInStock] = useState([10, 11, 12]);
 
   return (
     <div className="App">
@@ -100,7 +103,11 @@ function App() {
       </Route>
 
       <Route path="/detail/:id">
-        <Detail fruitData={fruit}></Detail>
+        <Detail
+          fruitData={fruit}
+          inStock={inStock}
+          setInStock={setInStock}
+        ></Detail>
       </Route>
     </div>
   );
