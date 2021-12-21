@@ -36,9 +36,13 @@ function Detail({ history }) {
       cancelText: 'No',
       okText: 'Yes',
       okType: 'danger',
-      onOk() {
-        history.push('/');
-        axios.delete(`http://localhost:4000/movies/${params.id}`);
+      onOk: () => {
+        axios
+          .delete(`http://localhost:4000/movies/${params.id}`)
+          .then(() => history.push('/'))
+          .catch(err => {
+            console.log(err);
+          });
       },
     });
   }
