@@ -14,7 +14,6 @@ import {
 import { UploadOutlined } from '@ant-design/icons';
 
 function MovieModal({ visible, onOk, onCancel }) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
   const [rating, setRating] = useState(0);
 
   const normFile = e => {
@@ -27,10 +26,11 @@ function MovieModal({ visible, onOk, onCancel }) {
 
   const [form] = Form.useForm();
 
+  // handleOk 함수 이름의 중복
   const handleOk = () => {
     const values = form.getFieldsValue(true);
     console.log('val', values);
-    setIsModalVisible(false);
+    onOk();
   };
 
   return (
