@@ -29,6 +29,15 @@ function Detail({ history }) {
     };
   }, []);
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:4000/movies/${params.id}`);
+      history.push('/');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   function showDeleteConfirm() {
     confirm({
       title: 'Are you sure delete this movie?',
@@ -36,14 +45,7 @@ function Detail({ history }) {
       cancelText: 'No',
       okText: 'Yes',
       okType: 'danger',
-      onOk: () => {
-        axios
-          .delete(`http://localhost:4000/movies/${params.id}`)
-          .then(() => history.push('/'))
-          .catch(err => {
-            console.log(err);
-          });
-      },
+      onOk: handleDelete,
     });
   }
 
