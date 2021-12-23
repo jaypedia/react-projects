@@ -14,6 +14,14 @@ function Detail({ history }) {
 
   const { confirm } = Modal;
 
+  const getMovies = async () => {
+    const response = await axios.get(
+      `http://localhost:4000/movies/${params.id}`
+    );
+    setMovie(response.data);
+  };
+  getMovies();
+
   useEffect(() => {
     let completed = false;
     const getMovies = async () => {
@@ -26,6 +34,7 @@ function Detail({ history }) {
       }
     };
     getMovies();
+    console.log('Edit');
     return () => {
       completed = true;
     };
@@ -59,8 +68,14 @@ function Detail({ history }) {
     setIsModalVisible(false);
   };
 
-  const handleOk = () => {
+  const handleEdit = async (values, movieId) => {
     setIsModalVisible(false);
+    try {
+      await axios.patch(`http://localhost:4000/movies/${movieId}`, values);
+      getMovies();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -119,8 +134,8 @@ function Detail({ history }) {
             title="Edit movie"
             visible={isModalVisible}
             onCancel={handleCancel}
-            onOk={handleOk}
-            moive={movie} // 비동기이기 떄문에 undefined - 영화들을 보내려면?
+            onOk={handleEdit}
+            movie={movie}
           />
         </>
       )}

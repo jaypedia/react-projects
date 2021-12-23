@@ -13,12 +13,8 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-function MovieModal({ title, visible, onCancel, onCreate, movie }) {
+function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(0);
-
-  console.log('MODIFY', movie);
-
-  // const { title, visible, onCancel, onCreate, movie } = props;
 
   const normFile = e => {
     console.log('Upload event:', e);
@@ -42,14 +38,18 @@ function MovieModal({ title, visible, onCancel, onCreate, movie }) {
           .validateFields()
           .then(values => {
             form.resetFields();
-            onCreate(values);
+            if (!movie) {
+              onCreate(values);
+            } else {
+              onOk(values, movie.id); // Edit
+            }
           })
           .catch(info => {
             console.log('Validate Failed:', info);
           });
       }}
     >
-      <Form form={form}>
+      <Form form={form} initialValues={movie}>
         <Row gutter={20}>
           <Col span={12}>
             <Form.Item
