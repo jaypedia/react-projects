@@ -1,3 +1,9 @@
+/*
 .ant-row {
   flex-flow: row;
+}
+*/
+
+.ant-form {
+  display: flex;
 }

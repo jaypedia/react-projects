@@ -47,7 +47,7 @@ function Home() {
     return () => (completed = true);
   }, [inputValue, ganre]);
 
-  const handleReload = () => {
+  const handleResetStates = () => {
     setInputValue(undefined);
     setGanre(undefined);
     setPage(1);
@@ -83,7 +83,7 @@ function Home() {
           onSearch={setInputValue}
           filterGanre={setGanre}
           sort={setSort}
-          reload={handleReload}
+          resetStates={handleResetStates}
         />
         <Button
           className="add-movies"
