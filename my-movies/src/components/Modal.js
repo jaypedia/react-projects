@@ -15,6 +15,7 @@ import { UploadOutlined } from '@ant-design/icons';
 
 function MovieModal({ visible, onOk, onCancel }) {
   const [rating, setRating] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const normFile = e => {
     console.log('Upload event:', e);
@@ -26,30 +27,64 @@ function MovieModal({ visible, onOk, onCancel }) {
 
   const [form] = Form.useForm();
 
-  // handleOk 함수 이름의 중복
   const handleOk = () => {
     const values = form.getFieldsValue(true);
-    console.log('val', values);
-    onOk();
+    console.log('val', values); // test
+
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      onOk();
+    }, 2000);
   };
 
   return (
     <Modal
       title="Add New Movie"
       visible={visible}
-      onOk={handleOk}
-      getContainer={true}
       onCancel={onCancel}
+      footer={[
+        <Button key="back" onClick={onCancel}>
+          Cancel
+        </Button>,
+        <Button
+          key="submit"
+          type="primary"
+          onClick={handleOk}
+          loading={loading}
+        >
+          Submit
+        </Button>,
+      ]}
+      getContainer={true}
     >
       <Form form={form}>
         <Row gutter={20}>
           <Col span={12}>
-            <Form.Item name="title" label="Title">
+            <Form.Item
+              name="title"
+              label="Title"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input title',
+                },
+              ]}
+            >
               <Input />
             </Form.Item>
           </Col>
           <Col span={12}>
-            <Form.Item name="director" label="Director">
+            <Form.Item
+              name="director"
+              label="Director"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input director',
+                },
+              ]}
+            >
               <Input />
             </Form.Item>
           </Col>
@@ -59,20 +94,14 @@ function MovieModal({ visible, onOk, onCancel }) {
             <InputNumber />
           </Form.Item>
           <Form.Item name="rating" label="Rating">
-            <span>
-              <Rate
-                allowHalf
-                style={{ fontSize: 25 }}
-                value={rating}
-                onChange={setRating}
-              />
-              {rating ? (
-                <span className="ant-rate-text">{rating * 2}</span>
-              ) : (
-                ''
-              )}
-            </span>
+            <Rate
+              allowHalf
+              style={{ fontSize: 25 }}
+              value={rating}
+              onChange={setRating}
+            />
           </Form.Item>
+          {rating ? <span className="ant-rate-text">{rating * 2}</span> : '0'}
         </Row>
         <Form.Item name="ganre" label="Ganre">
           <Radio.Group>
