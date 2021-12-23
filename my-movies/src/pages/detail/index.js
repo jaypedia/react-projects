@@ -14,13 +14,17 @@ function Detail({ history }) {
 
   const { confirm } = Modal;
 
-  const getMovies = async () => {
+  const renderMovie = async () => {
     const response = await axios.get(
       `http://localhost:4000/movies/${params.id}`
     );
     setMovie(response.data);
+    // console.log(movie);
   };
-  getMovies();
+
+  useEffect(() => {
+    renderMovie();
+  }, []);
 
   useEffect(() => {
     let completed = false;
@@ -34,7 +38,6 @@ function Detail({ history }) {
       }
     };
     getMovies();
-    console.log('Edit');
     return () => {
       completed = true;
     };
@@ -68,11 +71,14 @@ function Detail({ history }) {
     setIsModalVisible(false);
   };
 
-  const handleEdit = async (values, movieId) => {
+  const handleEdit = async values => {
     setIsModalVisible(false);
     try {
-      await axios.patch(`http://localhost:4000/movies/${movieId}`, values);
-      getMovies();
+      await axios.patch(`http://localhost:4000/movies/${params.id}`, values);
+      console.log(values); // values - 수정한 것
+      setMovie(values);
+      console.log(movie); // movie의 state가 바뀌지 않는 이유는?
+      renderMovie();
     } catch (err) {
       console.log(err);
     }
@@ -112,13 +118,17 @@ function Detail({ history }) {
                 </div>
               </div>
             </Col>
-            <Col span={20}>
+            <Col span={20} style={{ padding: '20px' }}>
               <Row>
                 <div className="detail__title-rating">
-                  <h1 className="detail__title-year">
-                    {movie.title} ({movie.year})
-                  </h1>
-                  <h1 className="detail__rating">✿ {movie.rating}</h1>
+                  <Col span={21}>
+                    <h1 className="detail__title-year">
+                      {movie.title} ({movie.year})
+                    </h1>
+                  </Col>
+                  <Col span={3}>
+                    <h1 className="detail__rating">✿ {movie.rating}</h1>
+                  </Col>
                 </div>
               </Row>
               <Row>

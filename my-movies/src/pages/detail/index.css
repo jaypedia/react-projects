@@ -3,10 +3,11 @@
 }
 
 img {
-  width: 200px;
   height: 300px;
+  width: 100%;
 }
 
 .detail__title-rating {
   display: flex;
+  width: 100%;
 }
