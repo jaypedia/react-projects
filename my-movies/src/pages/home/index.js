@@ -9,12 +9,12 @@ import { Row, Pagination } from 'antd';
 const PAGE_LIMIT = 4;
 
 function Home() {
-  const [movies, setMovie] = useState();
+  const [movies, setMovie] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [inputValue, setInputValue] = useState(undefined);
-  const [ganre, setGanre] = useState();
+  const [ganre, setGanre] = useState(undefined);
   const [_page, setPage] = useState(1);
-  const [_sort, setSort] = useState();
+  const [_sort, setSort] = useState(undefined);
   const [total, setTotal] = useState(0);
 
   // 검색, 장르, 정렬
@@ -50,10 +50,10 @@ function Home() {
   }, [inputValue, ganre]);
 
   function handleReload() {
-    setInputValue();
-    setGanre();
+    setInputValue(undefined);
+    setGanre(undefined);
     setPage(1);
-    setSort();
+    setSort(undefined);
   }
 
   return (
