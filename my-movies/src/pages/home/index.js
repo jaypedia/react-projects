@@ -3,8 +3,8 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import AddBtn from './AddBtn';
-import { Row, Pagination } from 'antd';
+import { Row, Pagination, Button } from 'antd';
+import MovieModal from '../../components/Modal';
 
 const PAGE_LIMIT = 4;
 
@@ -16,6 +16,7 @@ function Home() {
   const [_page, setPage] = useState(1);
   const [_sort, setSort] = useState(undefined);
   const [total, setTotal] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   // 검색, 장르, 정렬
   useEffect(() => {
@@ -49,12 +50,24 @@ function Home() {
     return () => (completed = true);
   }, [inputValue, ganre]);
 
-  function handleReload() {
+  const handleReload = () => {
     setInputValue(undefined);
     setGanre(undefined);
     setPage(1);
     setSort(undefined);
-  }
+  };
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <section className="container">
@@ -65,7 +78,18 @@ function Home() {
           sort={setSort}
           reload={handleReload}
         />
-        <AddBtn />
+        <Button
+          className="add-movies"
+          size="large"
+          style={{
+            backgroundColor: '#c5d2ec',
+            borderRadius: '20px',
+            fontWeight: 'bold',
+          }}
+          onClick={showModal}
+        >
+          Add new movie
+        </Button>
       </Row>
       {isLoading ? (
         <div className="loader">
@@ -83,6 +107,11 @@ function Home() {
         onChange={setPage}
         total={total}
         pageSize={PAGE_LIMIT}
+      />
+      <MovieModal
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        onOk={handleOk}
       />
     </section>
   );
