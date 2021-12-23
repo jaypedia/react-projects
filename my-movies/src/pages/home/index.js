@@ -11,38 +11,43 @@ const PAGE_LIMIT = 4;
 function Home() {
   const [movies, setMovie] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState(undefined);
   const [ganre, setGanre] = useState();
   const [_page, setPage] = useState(1);
   const [_sort, setSort] = useState();
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
 
+  // 검색, 장르, 정렬
   useEffect(() => {
     let completed = false;
     const getMovies = async title => {
       const response = await axios.get('http://localhost:4000/movies', {
         params: { title, ganre, _page, _sort, _limit: PAGE_LIMIT },
       });
-
-      // 아이템 총 개수에 맞게 페이지 수 렌더링하기
-      // 중복 해결할 수 있는 방법은?
-
-      // ganre 필터링 시 개수에 맞게 페이지네이션 할 수 있도록 params에 ganre 추가
-      const totalMovie = await axios.get('http://localhost:4000/movies', {
-        params: { ganre },
-      });
-
       if (!completed) {
-        setTotal(totalMovie.data.length);
         setMovie(response.data);
         setIsLoading(false);
       }
     };
-
     getMovies(inputValue);
-
     return () => (completed = true);
   }, [inputValue, ganre, _page, _sort]);
+
+  // For pagination
+  useEffect(() => {
+    let completed = false;
+    const getMovies = async title => {
+      const totalMovie = await axios.get('http://localhost:4000/movies', {
+        params: { title, ganre },
+      });
+      if (!completed) {
+        setTotal(totalMovie.data.length);
+        setIsLoading(false);
+      }
+    };
+    getMovies(inputValue);
+    return () => (completed = true);
+  }, [inputValue, ganre]);
 
   function handleReload() {
     setInputValue();
