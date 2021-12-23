@@ -14,12 +14,12 @@ function Detail({ history }) {
 
   const { confirm } = Modal;
 
+  // 코드의 중복 문제
   const renderMovie = async () => {
     const response = await axios.get(
       `http://localhost:4000/movies/${params.id}`
     );
     setMovie(response.data);
-    // console.log(movie);
   };
 
   useEffect(() => {
@@ -75,9 +75,6 @@ function Detail({ history }) {
     setIsModalVisible(false);
     try {
       await axios.patch(`http://localhost:4000/movies/${params.id}`, values);
-      console.log(values); // values - 수정한 것
-      setMovie(values);
-      console.log(movie); // movie의 state가 바뀌지 않는 이유는?
       renderMovie();
     } catch (err) {
       console.log(err);

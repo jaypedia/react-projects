@@ -41,7 +41,8 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
             if (!movie) {
               onCreate(values);
             } else {
-              onOk(values, movie.id); // Edit
+              onOk(values); // Edit Logic
+              form.setFieldsValue(values);
             }
           })
           .catch(info => {
