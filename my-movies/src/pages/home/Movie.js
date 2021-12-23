@@ -6,7 +6,15 @@ function Movie({ id, title, year, director, ganre, rating, imageUrl }) {
   return (
     <div className="movie">
       <Link to={{ pathname: `/detail/${id}` }}>
-        <img src={imageUrl} alt={title} title={title} />
+        {imageUrl ? (
+          <img src={imageUrl} alt={title} title={title} />
+        ) : (
+          <img
+            src="https://i.stack.imgur.com/y9DpT.jpg"
+            alt={title}
+            title={title}
+          />
+        )}
         <div className="movie__data">
           <h3 className="movie__title-year">
             {title} ({year})
