@@ -1,5 +1,6 @@
 .container {
   padding: 60px 200px 60px 200px;
+  position: relative;
 }
 
 .movies {
@@ -30,9 +31,11 @@
 }
 
 .ant-btn.add-movies {
-  margin-left: 30px;
+  position: fixed;
+  right: 200px;
 }
 
+/*
 .ant-select.ant-select-lg {
   margin-left: 30px;
 }
@@ -40,3 +43,4 @@
 .ant-btn.reload {
   margin-left: 30px;
 }
+*/

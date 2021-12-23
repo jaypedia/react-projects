@@ -78,26 +78,13 @@ function Home() {
 
   return (
     <section className="container">
-      <Row>
-        <Searchbar
-          onSearch={setInputValue}
-          filterGanre={setGanre}
-          sort={setSort}
-          resetStates={handleResetStates}
-        />
-        <Button
-          className="add-movies"
-          size="large"
-          style={{
-            backgroundColor: '#c5d2ec',
-            borderRadius: '20px',
-            fontWeight: 'bold',
-          }}
-          onClick={showModal}
-        >
-          Add new movie
-        </Button>
-      </Row>
+      <Searchbar
+        onSearch={setInputValue}
+        filterGanre={setGanre}
+        sort={setSort}
+        resetStates={handleResetStates}
+      />
+
       {isLoading ? (
         <div className="loader">
           <span className="loader__text">Loading...🎬</span>
@@ -115,6 +102,18 @@ function Home() {
         total={total}
         pageSize={PAGE_LIMIT}
       />
+      <Button
+        className="add-movies"
+        size="large"
+        style={{
+          backgroundColor: '#c5d2ec',
+          borderRadius: '20px',
+          fontWeight: 'bold',
+        }}
+        onClick={showModal}
+      >
+        Add new movie
+      </Button>
       <MovieModal
         title="Add New Movie"
         visible={isModalVisible}

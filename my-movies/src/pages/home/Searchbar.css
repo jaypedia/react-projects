@@ -1,9 +1,5 @@
-/*
-.ant-row {
-  flex-flow: row;
-}
-*/
-
-.ant-form {
-  display: flex;
+.searchbar-form {
+  display: grid;
+  grid-template-columns: 18fr 3fr 3fr 1fr;
+  gap: 25px;
 }
