@@ -18,6 +18,8 @@ function MovieModal({ title, visible, onCancel, onCreate, movie }) {
 
   console.log('MODIFY', movie);
 
+  // const { title, visible, onCancel, onCreate, movie } = props;
+
   const normFile = e => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
@@ -79,36 +81,42 @@ function MovieModal({ title, visible, onCancel, onCreate, movie }) {
           </Col>
         </Row>
         <Row>
-          <Form.Item
-            name="year"
-            label="Year"
-            rules={[
-              {
-                required: true,
-                message: 'Please input year',
-              },
-            ]}
-          >
-            <InputNumber />
-          </Form.Item>
-          <Form.Item
-            name="rating"
-            label="Rating"
-            rules={[
-              {
-                required: true,
-                message: 'Please input rating',
-              },
-            ]}
-          >
-            <Rate
-              allowHalf
-              style={{ fontSize: 25 }}
-              value={rating}
-              onChange={setRating}
-            />
-          </Form.Item>
-          {rating ? <span className="ant-rate-text">{rating * 2}</span> : '0'}
+          <Col span={12}>
+            <Form.Item
+              name="year"
+              label="Year"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input year',
+                },
+              ]}
+            >
+              <InputNumber />
+            </Form.Item>
+          </Col>
+          <Col span={11}>
+            <Form.Item
+              name="rating"
+              label="Rating"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please input rating',
+                },
+              ]}
+            >
+              <Rate
+                allowHalf
+                value={rating}
+                onChange={setRating}
+                style={{ fontSize: 20 }}
+              />
+            </Form.Item>
+          </Col>
+          <Col span={1}>
+            {rating ? <span className="ant-rate-text">{rating * 2}</span> : ''}
+          </Col>
         </Row>
         <Form.Item
           name="ganre"
