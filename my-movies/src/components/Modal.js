@@ -13,9 +13,8 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-function MovieModal({ visible, onOk, onCancel }) {
+function MovieModal({ visible, onCancel, onCreate }) {
   const [rating, setRating] = useState(0);
-  const [loading, setLoading] = useState(false);
 
   const normFile = e => {
     console.log('Upload event:', e);
@@ -27,36 +26,24 @@ function MovieModal({ visible, onOk, onCancel }) {
 
   const [form] = Form.useForm();
 
-  const handleOk = () => {
-    const values = form.getFieldsValue(true);
-    console.log('val', values); // test
-
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      onOk();
-    }, 2000);
-  };
-
   return (
     <Modal
       title="Add New Movie"
       visible={visible}
       onCancel={onCancel}
-      footer={[
-        <Button key="back" onClick={onCancel}>
-          Cancel
-        </Button>,
-        <Button
-          key="submit"
-          type="primary"
-          onClick={handleOk}
-          loading={loading}
-        >
-          Submit
-        </Button>,
-      ]}
       getContainer={true}
+      okText="Add movie"
+      onOk={() => {
+        form
+          .validateFields()
+          .then(values => {
+            form.resetFields();
+            onCreate(values);
+          })
+          .catch(info => {
+            console.log('Validate Failed:', info);
+          });
+      }}
     >
       <Form form={form}>
         <Row gutter={20}>
@@ -90,10 +77,28 @@ function MovieModal({ visible, onOk, onCancel }) {
           </Col>
         </Row>
         <Row>
-          <Form.Item name="year" label="Year">
+          <Form.Item
+            name="year"
+            label="Year"
+            rules={[
+              {
+                required: true,
+                message: 'Please input year',
+              },
+            ]}
+          >
             <InputNumber />
           </Form.Item>
-          <Form.Item name="rating" label="Rating">
+          <Form.Item
+            name="rating"
+            label="Rating"
+            rules={[
+              {
+                required: true,
+                message: 'Please input rating',
+              },
+            ]}
+          >
             <Rate
               allowHalf
               style={{ fontSize: 25 }}
@@ -103,7 +108,16 @@ function MovieModal({ visible, onOk, onCancel }) {
           </Form.Item>
           {rating ? <span className="ant-rate-text">{rating * 2}</span> : '0'}
         </Row>
-        <Form.Item name="ganre" label="Ganre">
+        <Form.Item
+          name="ganre"
+          label="Ganre"
+          rules={[
+            {
+              required: true,
+              message: 'Please input ganre',
+            },
+          ]}
+        >
           <Radio.Group>
             <Radio value="Action">Action</Radio>
             <Radio value="Drama">Drama</Radio>
@@ -111,7 +125,16 @@ function MovieModal({ visible, onOk, onCancel }) {
             <Radio value="Comedy">Comedy</Radio>
           </Radio.Group>
         </Form.Item>
-        <Form.Item name="introduction" label="Introduction">
+        <Form.Item
+          name="description"
+          label="description"
+          rules={[
+            {
+              required: true,
+              message: 'Please input description',
+            },
+          ]}
+        >
           <Input.TextArea rows={5} />
         </Form.Item>
         <Form.Item

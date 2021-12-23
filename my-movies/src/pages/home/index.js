@@ -17,6 +17,7 @@ function Home() {
   const [_sort, setSort] = useState(undefined);
   const [total, setTotal] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [post, setPost] = useState(false);
 
   // 검색, 장르, 정렬
   useEffect(() => {
@@ -31,8 +32,11 @@ function Home() {
       }
     };
     getMovies(inputValue);
-    return () => (completed = true);
-  }, [inputValue, ganre, _page, _sort]);
+    return () => {
+      completed = true;
+      setPost(false);
+    };
+  }, [inputValue, ganre, _page, _sort, post]);
 
   // For pagination
   useEffect(() => {
@@ -65,7 +69,18 @@ function Home() {
     setIsModalVisible(false);
   };
 
-  const handleOk = () => {
+  const handleCreate = async values => {
+    try {
+      await axios.post('http://localhost:4000/movies', values);
+      setPost(true); // movie re-rendering
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const onCreate = values => {
+    console.log(values);
+    handleCreate(values);
     setIsModalVisible(false);
   };
 
@@ -111,7 +126,7 @@ function Home() {
       <MovieModal
         visible={isModalVisible}
         onCancel={handleCancel}
-        onOk={handleOk}
+        onCreate={onCreate}
       />
     </section>
   );
