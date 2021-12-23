@@ -4,11 +4,13 @@ import './index.css';
 import { Row, Col, Button, Modal } from 'antd';
 import { useParams } from 'react-router-dom';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
+import MovieModal from '../../components/Modal';
 
 function Detail({ history }) {
   const params = useParams();
-  const [movie, setMovie] = useState();
+  const [movie, setMovie] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { confirm } = Modal;
 
@@ -38,7 +40,7 @@ function Detail({ history }) {
     }
   };
 
-  function showDeleteConfirm() {
+  const showDeleteConfirm = () => {
     confirm({
       title: 'Are you sure delete this movie?',
       icon: <ExclamationCircleOutlined />,
@@ -47,7 +49,19 @@ function Detail({ history }) {
       okType: 'danger',
       onOk: handleDelete,
     });
-  }
+  };
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="detail">
@@ -87,12 +101,19 @@ function Detail({ history }) {
               <div className="detail__summary">{movie.description}</div>
             </Row>
           </Col>
-          <Button>Edit</Button>
+          <Button onClick={showModal}>Edit</Button>
           <Button onClick={showDeleteConfirm} type="dashed">
             Delete
           </Button>
         </Row>
       )}
+      <MovieModal
+        title="Edit movie"
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        onOk={handleOk}
+        moive={movie} // 비동기이기 떄문에 undefined - 영화들을 보내려면?
+      />
     </div>
   );
 }

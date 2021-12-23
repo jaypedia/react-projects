@@ -13,8 +13,10 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-function MovieModal({ visible, onCancel, onCreate }) {
+function MovieModal({ title, visible, onCancel, onCreate, movie }) {
   const [rating, setRating] = useState(0);
+
+  console.log('MODIFY', movie);
 
   const normFile = e => {
     console.log('Upload event:', e);
@@ -28,11 +30,11 @@ function MovieModal({ visible, onCancel, onCreate }) {
 
   return (
     <Modal
-      title="Add New Movie"
+      title={title}
       visible={visible}
       onCancel={onCancel}
       getContainer={true}
-      okText="Add movie"
+      okText="Done"
       onOk={() => {
         form
           .validateFields()

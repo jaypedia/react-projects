@@ -124,6 +124,7 @@ function Home() {
         pageSize={PAGE_LIMIT}
       />
       <MovieModal
+        title="Add New Movie"
         visible={isModalVisible}
         onCancel={handleCancel}
         onCreate={onCreate}
