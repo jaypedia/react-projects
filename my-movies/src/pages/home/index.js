@@ -17,40 +17,33 @@ function Home() {
   const [_sort, setSort] = useState(undefined);
   const [total, setTotal] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [post, setPost] = useState(false);
 
-  // 검색, 장르, 정렬
+  const getMovies = async () => {
+    setIsLoading(true);
+    const response = await axios.get('http://localhost:4000/movies', {
+      params: { title: inputValue, ganre, _page, _sort, _limit: PAGE_LIMIT },
+    });
+    setMovie(response.data);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    let completed = false;
-    const getMovies = async title => {
-      const response = await axios.get('http://localhost:4000/movies', {
-        params: { title, ganre, _page, _sort, _limit: PAGE_LIMIT },
-      });
-      if (!completed) {
-        setMovie(response.data);
-        setIsLoading(false);
-      }
-    };
-    getMovies(inputValue);
-    return () => {
-      completed = true;
-      setPost(false);
-    };
-  }, [inputValue, ganre, _page, _sort, post]);
+    getMovies();
+  }, [inputValue, ganre, _page, _sort]);
 
   // For pagination
   useEffect(() => {
     let completed = false;
-    const getMovies = async title => {
+    const getMovies = async () => {
       const totalMovie = await axios.get('http://localhost:4000/movies', {
-        params: { title, ganre },
+        params: { title: inputValue, ganre },
       });
       if (!completed) {
         setTotal(totalMovie.data.length);
         setIsLoading(false);
       }
     };
-    getMovies(inputValue);
+    getMovies();
     return () => (completed = true);
   }, [inputValue, ganre]);
 
@@ -69,18 +62,17 @@ function Home() {
     setIsModalVisible(false);
   };
 
-  const handleCreate = async values => {
+  const addNewMoive = async values => {
     try {
       await axios.post('http://localhost:4000/movies', values);
-      setPost(true); // movie re-rendering
+      getMovies();
     } catch (err) {
       console.log(err);
     }
   };
 
-  const onCreate = values => {
-    console.log(values);
-    handleCreate(values);
+  const handleCreate = values => {
+    addNewMoive(values);
     setIsModalVisible(false);
   };
 
@@ -127,7 +119,7 @@ function Home() {
         title="Add New Movie"
         visible={isModalVisible}
         onCancel={handleCancel}
-        onCreate={onCreate}
+        onCreate={handleCreate}
       />
     </section>
   );
