@@ -27,18 +27,27 @@ function Home() {
     setIsLoading(false);
   };
 
-  // sort by year : asending & desending
+  // For sorting by year and rating : asending & desending
   useEffect(() => {
     let completed = false;
+    let sort;
     let _order;
     if (_sort === 'year-latest') {
+      sort = 'year';
       _order = 'desc';
     } else if (_sort === 'year-oldest') {
+      sort = 'year';
+      _order = 'asc';
+    } else if (_sort === 'rating') {
+      sort = 'rating';
+      _order = 'desc';
+    } else if (_sort === 'title') {
+      sort = 'title';
       _order = 'asc';
     }
     const getMovies = async () => {
       const response = await axios.get('http://localhost:4000/movies', {
-        params: { _sort: 'year', _order, _limit: PAGE_LIMIT },
+        params: { _sort: sort, _order, _limit: PAGE_LIMIT },
       });
       if (!completed) {
         setMovie(response.data);
