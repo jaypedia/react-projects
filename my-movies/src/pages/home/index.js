@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import { Row, Pagination, Button } from 'antd';
+import { Pagination, Button } from 'antd';
 import MovieModal from '../../components/Modal';
 
 const PAGE_LIMIT = 4;
@@ -21,15 +21,37 @@ function Home() {
   const getMovies = async () => {
     setIsLoading(true);
     const response = await axios.get('http://localhost:4000/movies', {
-      params: { title: inputValue, ganre, _page, _sort, _limit: PAGE_LIMIT },
+      params: { title: inputValue, ganre, _page, _limit: PAGE_LIMIT },
     });
     setMovie(response.data);
     setIsLoading(false);
   };
 
+  // sort by year : asending & desending
+  useEffect(() => {
+    let completed = false;
+    let _order;
+    if (_sort === 'year-latest') {
+      _order = 'desc';
+    } else if (_sort === 'year-oldest') {
+      _order = 'asc';
+    }
+    const getMovies = async () => {
+      const response = await axios.get('http://localhost:4000/movies', {
+        params: { _sort: 'year', _order, _limit: PAGE_LIMIT },
+      });
+      if (!completed) {
+        setMovie(response.data);
+        setIsLoading(false);
+      }
+    };
+    getMovies();
+    return () => (completed = true);
+  }, [_sort]);
+
   useEffect(() => {
     getMovies();
-  }, [inputValue, ganre, _page, _sort]);
+  }, [inputValue, ganre, _page]);
 
   // For pagination
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Input, Select, Row, Col, Button, Form } from 'antd';
+import { Input, Select, Button, Form } from 'antd';
 import './Searchbar.css';
 import { ReloadOutlined } from '@ant-design/icons';
 
@@ -33,9 +33,10 @@ function Searchbar({ onSearch, filterGanre, sort, resetStates }) {
       </Form.Item>
       <Form.Item name="sort">
         <Select defaultValue="Sort" size="large" onChange={sort}>
-          <Option value="title">title</Option>
-          <Option value="year">year</Option>
-          <Option value="rating">star</Option>
+          <Option value="title">Title</Option>
+          <Option value="year-latest">Latest</Option>
+          <Option value="year-oldest">Oldest</Option>
+          <Option value="rating">Rating</Option>
         </Select>
       </Form.Item>
       <Form.Item>
