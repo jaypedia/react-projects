@@ -7,7 +7,7 @@
       "summary": "Indian Hindi-language biographical sports drama film",
       "director": "Nitesh Tiwari",
       "ganre": "Drama",
-      "rating": 4,
+      "rating": 8,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
@@ -18,7 +18,7 @@
       "summary": "American action comedy spy film",
       "director": "Paul Feig",
       "ganre": "Action",
-      "rating": 4,
+      "rating": 7,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Spy is a 2015 American action comedy spy film written and directed by Paul Feig. Starring Melissa McCarthy, Jason Statham, Rose Byrne, Miranda Hart, Bobby Cannavale, Allison Janney, and Jude Law. It follows unorthodox secret agent Susan Cooper (McCarthy) as she tries to trace a stolen portable nuclear device Produced by Peter Chernin, Jenno Topping, Feig, and Jessie Henderson, the film was premiere of SXSW Festival in March 15, 2015 and on theatrically released in the United States on June 5, 2015. It received positive reviews from critics and grossed $235 million worldwide."
     },
@@ -29,7 +29,7 @@
       "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
       "director": "Betsy West, Julie Cohen",
       "ganre": "Documentary",
-      "rating": 5,
+      "rating": 10,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
     },
@@ -40,7 +40,7 @@
       "summary": "The film stars Charlize Theron, Nicole Kidman, and Margot Robbie, and is based upon the accounts of the women at Fox News who set out to expose CEO Roger Ailes for sexual harassment.",
       "director": "Jay Roach",
       "ganre": "Drama",
-      "rating": 4.5,
+      "rating": 9,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Bombshell is a 2019 drama film directed by Jay Roach and written by Charles Randolph. The film stars Charlize Theron, Nicole Kidman, and Margot Robbie, and is based upon the accounts of the women at Fox News who set out to expose CEO Roger Ailes for sexual harassment. John Lithgow, Kate McKinnon, Connie Britton, Malcolm McDowell, and Allison Janney appear in supporting roles.The project was first announced in May 2017 following Ailes's death, with Roach confirmed as director the following year. Much of the cast joined that summer and filming began in October 2018 in Los Angeles. It entered into a limited release in the United States on December 13, 2019, before a wide release on December 20, by Lionsgate."
     },
@@ -51,20 +51,20 @@
       "summary": "Terminator: Dark Fate is a 2019 American science fiction action film ",
       "director": "Tim Miller",
       "ganre": "Action",
-      "rating": 4.5,
+      "rating": 8,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "It is the sixth installment in the Terminator franchise and a sequel to Terminator 2: Judgment Day (1991), disregarding the events of Terminator 3: Rise of the Machines (2003), Terminator Salvation (2009) and Terminator Genisys (2015), following the return of creative control to Cameron.The film stars Linda Hamilton and Arnold Schwarzenegger as Sarah Connor and the T-800 Terminator, respectively, reuniting the actors after 23 years. It introduces Mackenzie Davis, Natalia Reyes, Gabriel Luna, and Diego Boneta as new characters. Set 25 years after the events of Terminator 2, the film sees the machines sending an advanced Terminator (Luna), designated Rev-9, back in time to 2020 to kill Dani Ramos (Reyes), whose fate is connected to the future. The Resistance also sends Grace (Davis), an augmented soldier, back in time to defend Dani, while they are joined by Sarah Connor and Skynet's T-800 Terminator."
     },
     {
       "id": 6,
-      "title": "RBG",
-      "year": 2018,
-      "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
-      "director": "Betsy West, Julie Cohen",
-      "ganre": "Documentary",
-      "rating": 4,
+      "title": "The Old Guard",
+      "year": 2020,
+      "summary": "American superhero film directed by Gina Prince-Bythewood and written by Greg Rucka",
+      "director": "Gina Prince-Bythewood",
+      "ganre": "Action",
+      "rating": 9,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
-      "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
+      "description": "The film stars Charlize Theron, KiKi Layne, Matthias Schoenaerts, Marwan Kenzari, Luca Marinelli, Harry Melling, Van Veronica Ngo, and Chiwetel Ejiofor, and follows a team of immortal mercenaries on a revenge mission. The Old Guard was released on July 10, 2020, on Netflix. It received generally positive reviews from critics, with praise for the action sequences and Theron's performance. A sequel is in development with Victoria Mahoney directing the film."
     },
     {
       "id": 7,
@@ -73,7 +73,7 @@
       "summary": "Indian Hindi-language biographical sports drama film",
       "director": "Nitesh Tiwari",
       "ganre": "Drama",
-      "rating": 4,
+      "rating": 8,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
@@ -84,7 +84,7 @@
       "summary": "American action comedy spy film",
       "director": "Paul Feig",
       "ganre": "Action",
-      "rating": 4.5,
+      "rating": 9,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Spy is a 2015 American action comedy spy film written and directed by Paul Feig. Starring Melissa McCarthy, Jason Statham, Rose Byrne, Miranda Hart, Bobby Cannavale, Allison Janney, and Jude Law. It follows unorthodox secret agent Susan Cooper (McCarthy) as she tries to trace a stolen portable nuclear device Produced by Peter Chernin, Jenno Topping, Feig, and Jessie Henderson, the film was premiere of SXSW Festival in March 15, 2015 and on theatrically released in the United States on June 5, 2015. It received positive reviews from critics and grossed $235 million worldwide."
     },
@@ -95,7 +95,7 @@
       "summary": "American documentary film focusing on the life and career of Ruth Bader Ginsburg",
       "director": "Betsy West, Julie Cohen",
       "ganre": "Documentary",
-      "rating": 5,
+      "rating": 8.5,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "RBG is a 2018 American documentary film focusing on the life and career of Ruth Bader Ginsburg, the second female Associate Justice of the Supreme Court of the United States after Sandra Day O'Connor. After premiering at the 2018 Sundance Film Festival, the film was released in the United States on May 4, 2018. The film was directed and produced by Betsy West and Julie Cohen.The film received positive reviews from critics and grossed $14 million worldwide. It was chosen by the National Board of Review as the Best Documentary Film of 2018, and nominated for several other awards, including the BAFTA Award for Best Documentary. "
     },
@@ -106,7 +106,7 @@
       "summary": "Indian Hindi-language biographical sports drama film",
       "director": "Nitesh Tiwari",
       "ganre": "Drama",
-      "rating": 4,
+      "rating": 8.5,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     },
@@ -117,7 +117,7 @@
       "summary": "Indian Hindi-language biographical sports drama film",
       "director": "Nitesh Tiwari",
       "ganre": "Drama",
-      "rating": 4,
+      "rating": 7,
       "imageUrl": "https://i.stack.imgur.com/y9DpT.jpg",
       "description": "Dangal (transl. Wrestling competition) is a 2016 Indian Hindi-language biographical sports drama film directed by Nitesh Tiwari, written by Tiwari, Piyush Gupta, Shreyas Jain and Nikhil Mehrotra, and produced by Aamir Khan and Kiran Rao under Aamir Khan Productions with Siddharth Roy Kapur producing the original Hindi version under the Disney banner and the dubbed local and overseas versions under the UTV Motion Pictures banner. Based on a story idea by Disney creative member Divya V."
     }
