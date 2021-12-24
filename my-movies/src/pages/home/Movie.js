@@ -19,7 +19,7 @@ function Movie({ id, title, year, director, ganre, rating, imageUrl }) {
           <h3 className="movie__title-year">
             {title} ({year})
           </h3>
-          <h4 className="movie__rating">✿ {rating * 2}</h4>
+          <h4 className="movie__rating">✿ {rating}</h4>
           <h3 className="movie__director">{director}</h3>
           <p className="movie__genre">{ganre}</p>
         </div>
