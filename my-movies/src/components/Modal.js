@@ -12,16 +12,42 @@ import {
   Col,
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import axios from 'axios';
 
 function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(0);
 
   const normFile = e => {
     console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-      return e;
-    }
-    return e && e.fileList;
+
+    const files = e.file;
+    console.dir(files);
+    const formData = new FormData();
+    const url = 'https://api.cloudinary.com/v1_1/millie2022/image/upload';
+
+    console.log(formData);
+
+    // 400 (Bad Request)
+    // axios.post(url, formData).then(response => console.log(response));
+
+    for (let i = 0; i < files.length; i++) {
+    let file = files[i];
+      
+    formData.append('file', file);
+    formData.append('upload_preset', 'milliepreset');
+    
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+    }).then(response => {
+      console.log(response);
+      return response.text();
+    });}
+
+    // if (Array.isArray(e)) {
+    //   return e;
+    // }
+    // return e && e.fileList;
   };
 
   const [form] = Form.useForm();
