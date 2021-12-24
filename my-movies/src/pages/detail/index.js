@@ -124,7 +124,7 @@ function Detail({ history }) {
                     </h1>
                   </Col>
                   <Col span={3}>
-                    <h1 className="detail__rating">✿ {movie.rating}</h1>
+                    <h1 className="detail__rating">✿ {movie.rating * 2}</h1>
                   </Col>
                 </div>
               </Row>
