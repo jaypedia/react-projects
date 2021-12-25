@@ -17,12 +17,6 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(0);
   const [form] = Form.useForm();
 
-  // const로 movieRating 생성시 initialValues 쪽에서 movieRating 인식 못 함
-  let movieRating;
-  if (movie) {
-    movieRating = movie.rating / 2;
-  }
-
   return (
     <Modal
       title={title}
@@ -50,7 +44,7 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
           });
       }}
     >
-      <Form form={form} initialValues={{ ...movie, rating: movieRating }}>
+      <Form form={form} initialValues={{ ...movie, rating: movie?.rating / 2 }}>
         <Row gutter={20}>
           <Col span={12}>
             <Form.Item
@@ -118,8 +112,8 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
           <Col span={1}>
             {rating ? (
               <span className="ant-rate-text">{rating * 2}</span>
-            ) : movieRating ? (
-              <span className="ant-rate-text">{movieRating * 2}</span>
+            ) : movie?.rating ? (
+              <span className="ant-rate-text">{movie?.rating}</span>
             ) : (
               ''
             )}
