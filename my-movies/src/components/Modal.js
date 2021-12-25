@@ -12,40 +12,9 @@ import {
   Col,
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import axios from 'axios';
 
 function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(0);
-
-  const normFile = e => {
-    console.log('Upload event:', e);
-
-    const files = e.fileList;
-    const formData = new FormData();
-    const url = 'https://api.cloudinary.com/v1_1/millie2022/image/upload';
-
-    // 400 (Bad Request)
-    // axios.post(url, formData).then(response => console.log(response));
-
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i];
-      formData.append('file', file);
-      formData.append('upload_preset', 'milliepreset');
-
-      fetch(url, {
-        method: 'POST',
-        body: formData,
-      }).then(response => {
-        console.log(response);
-        return response.text();
-      });
-    }
-
-    if (Array.isArray(e)) return e; // e가 array이면 e를 리턴
-    // e가 array가 아니면 밑의 코드 실행
-    return e && e.fileList; // e가 참이면 e.fileList를 리턴
-  };
-
   const [form] = Form.useForm();
 
   // const로 movieRating 생성시 initialValues 쪽에서 movieRating 인식 못 함
@@ -185,16 +154,12 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
         >
           <Input.TextArea rows={5} />
         </Form.Item>
-        <Form.Item
-          name="upload"
-          label="poster"
-          valuePropName="fileList"
-          getValueFromEvent={normFile}
-        >
+        <Form.Item name="upload" label="poster">
           <Upload
             name="file"
             action="https://api.cloudinary.com/v1_1/millie2022/image/upload"
             listType="picture"
+            data={{ upload_preset: 'milliepreset' }}
           >
             <Button icon={<UploadOutlined />}>Click to upload</Button>
           </Upload>
