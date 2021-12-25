@@ -20,34 +20,30 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const normFile = e => {
     console.log('Upload event:', e);
 
-    const files = e.file;
-    console.dir(files);
+    const files = e.fileList;
     const formData = new FormData();
     const url = 'https://api.cloudinary.com/v1_1/millie2022/image/upload';
-
-    console.log(formData);
 
     // 400 (Bad Request)
     // axios.post(url, formData).then(response => console.log(response));
 
     for (let i = 0; i < files.length; i++) {
-    let file = files[i];
-      
-    formData.append('file', file);
-    formData.append('upload_preset', 'milliepreset');
-    
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-    }).then(response => {
-      console.log(response);
-      return response.text();
-    });}
+      let file = files[i];
+      formData.append('file', file);
+      formData.append('upload_preset', 'milliepreset');
 
-    // if (Array.isArray(e)) {
-    //   return e;
-    // }
-    // return e && e.fileList;
+      fetch(url, {
+        method: 'POST',
+        body: formData,
+      }).then(response => {
+        console.log(response);
+        return response.text();
+      });
+    }
+
+    if (Array.isArray(e)) return e; // e가 array이면 e를 리턴
+    // e가 array가 아니면 밑의 코드 실행
+    return e && e.fileList; // e가 참이면 e.fileList를 리턴
   };
 
   const [form] = Form.useForm();
@@ -66,11 +62,12 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
       getContainer={true}
       okText="Done"
       onOk={() => {
+        // 함수 따로 만들기
         form
           .validateFields()
           .then(values => {
             values = { ...values, rating: rating * 2 };
-            form.resetFields();
+            form.resetFields(); // 위치의 변경
             if (!movie) {
               onCreate(values);
             } else {
@@ -194,7 +191,11 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
           valuePropName="fileList"
           getValueFromEvent={normFile}
         >
-          <Upload name="logo" action="/upload.do" listType="picture">
+          <Upload
+            name="file"
+            action="https://api.cloudinary.com/v1_1/millie2022/image/upload"
+            listType="picture"
+          >
             <Button icon={<UploadOutlined />}>Click to upload</Button>
           </Upload>
         </Form.Item>
