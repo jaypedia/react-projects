@@ -14,7 +14,7 @@ import {
 import { UploadOutlined } from '@ant-design/icons';
 
 function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(movie?.rating / 2);
   const [form] = Form.useForm();
 
   return (
@@ -44,7 +44,7 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
           });
       }}
     >
-      <Form form={form} initialValues={{ ...movie, rating: movie?.rating / 2 }}>
+      <Form form={form} initialValues={{ ...movie, rating }}>
         <Row gutter={20}>
           <Col span={12}>
             <Form.Item
@@ -110,13 +110,7 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
             </Form.Item>
           </Col>
           <Col span={1}>
-            {rating ? (
-              <span className="ant-rate-text">{rating * 2}</span>
-            ) : movie?.rating ? (
-              <span className="ant-rate-text">{movie?.rating}</span>
-            ) : (
-              ''
-            )}
+            {rating ? <span className="ant-rate-text">{rating * 2}</span> : ''}
           </Col>
         </Row>
         <Form.Item
