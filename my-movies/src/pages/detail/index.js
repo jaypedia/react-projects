@@ -71,14 +71,26 @@ function Detail({ history }) {
     setIsModalVisible(false);
   };
 
-  const handleEdit = async values => {
-    setIsModalVisible(false);
+  const editMovie = async values => {
     try {
       await axios.patch(`http://localhost:4000/movies/${params.id}`, values);
       renderMovie();
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleEdit = values => {
+    const time = Date.now();
+    // debugger;
+    console.log(values);
+    const modifiedMovie = {
+      ...values,
+      time,
+      imageUrl: values.upload?.file.response.url,
+    };
+    editMovie(modifiedMovie);
+    setIsModalVisible(false);
   };
 
   return (
