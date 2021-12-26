@@ -15,6 +15,7 @@ function Home() {
   const [ganre, setGanre] = useState(undefined);
   const [_page, setPage] = useState(1);
   const [_sort, setSort] = useState(undefined);
+  const [_order, setOrder] = useState(undefined);
   const [total, setTotal] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -30,24 +31,9 @@ function Home() {
   // For sorting by year and rating : asending & desending
   useEffect(() => {
     let completed = false;
-    let sort;
-    let _order;
-    if (_sort === 'year-latest') {
-      sort = 'year';
-      _order = 'desc';
-    } else if (_sort === 'year-oldest') {
-      sort = 'year';
-      _order = 'asc';
-    } else if (_sort === 'rating') {
-      sort = 'rating';
-      _order = 'desc';
-    } else if (_sort === 'title') {
-      sort = 'title';
-      _order = 'asc';
-    }
     const getMovies = async () => {
       const response = await axios.get('http://localhost:4000/movies', {
-        params: { _sort: sort, _order, _limit: PAGE_LIMIT },
+        params: { _sort, _order, _limit: PAGE_LIMIT },
       });
       if (!completed) {
         setMovie(response.data);
@@ -56,7 +42,7 @@ function Home() {
     };
     getMovies();
     return () => (completed = true);
-  }, [_sort]);
+  }, [_sort, _order]);
 
   useEffect(() => {
     getMovies();
@@ -120,6 +106,7 @@ function Home() {
         onSearch={setInputValue}
         filterGanre={setGanre}
         sort={setSort}
+        order={setOrder}
         resetStates={handleResetStates}
       />
 

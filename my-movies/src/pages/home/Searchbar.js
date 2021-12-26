@@ -1,10 +1,10 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import { Input, Select, Button, Form } from 'antd';
+import { Input, Select, Button, Form, Radio } from 'antd';
 import './Searchbar.css';
 import { ReloadOutlined } from '@ant-design/icons';
 
-function Searchbar({ onSearch, filterGanre, sort, resetStates }) {
+function Searchbar({ onSearch, filterGanre, sort, order, resetStates }) {
   const { Search } = Input;
   const { Option } = Select;
 
@@ -34,10 +34,21 @@ function Searchbar({ onSearch, filterGanre, sort, resetStates }) {
       <Form.Item name="sort">
         <Select defaultValue="Sort" size="large" onChange={sort}>
           <Option value="title">Title</Option>
-          <Option value="year-latest">Latest</Option>
-          <Option value="year-oldest">Oldest</Option>
+          <Option value="year">Year</Option>
           <Option value="rating">Rating</Option>
         </Select>
+      </Form.Item>
+      <Form.Item name="sort-option">
+        <Radio.Group
+          defaultValue="asc"
+          size="large"
+          onChange={v => {
+            order(v?.target?.value);
+          }}
+        >
+          <Radio.Button value="asc">Ascending</Radio.Button>
+          <Radio.Button value="desc">Descending</Radio.Button>
+        </Radio.Group>
       </Form.Item>
       <Form.Item>
         <Button className="reload" size="large" onClick={handleReset}>
