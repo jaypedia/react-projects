@@ -103,7 +103,14 @@ function Home() {
   };
 
   const handleCreate = values => {
-    addNewMoive(values);
+    const time = Date.now();
+    const newMoive = {
+      ...values,
+      time,
+      imageUrl: values.upload?.file.response.url,
+    };
+    console.log('Added movie : ', newMoive);
+    addNewMoive(newMoive);
     setIsModalVisible(false);
   };
 
