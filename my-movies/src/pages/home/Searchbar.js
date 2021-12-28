@@ -19,14 +19,14 @@ function Searchbar({ onSearch, filterGanre, sort, order, resetStates }) {
     resetStates();
   };
 
+  const handleChange = v => {
+    order(v?.target?.value);
+  };
+
   return (
     <Form form={form} className="searchbar-form">
       <Form.Item name="search">
-        <Search
-          placeholder="Search any movies"
-          onSearch={onSearch}
-          size="large"
-        />
+        <Search placeholder="Search movies" onSearch={onSearch} size="large" />
       </Form.Item>
       <Form.Item name="ganre">
         <Select defaultValue="Ganre" size="large" onChange={filterGanre}>
@@ -43,13 +43,7 @@ function Searchbar({ onSearch, filterGanre, sort, order, resetStates }) {
         </Select>
       </Form.Item>
       <Form.Item name="sort-option">
-        <Radio.Group
-          defaultValue="asc"
-          size="large"
-          onChange={v => {
-            order(v?.target?.value);
-          }}
-        >
+        <Radio.Group defaultValue="asc" size="large" onChange={handleChange}>
           <Radio.Button value="asc">
             <SortAscendingOutlined />
           </Radio.Button>
