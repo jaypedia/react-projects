@@ -140,7 +140,6 @@ function Home() {
         Add new movie
       </Button>
       <MovieModal
-        title="Add New Movie"
         visible={isModalVisible}
         onCancel={handleCancel}
         onCreate={handleCreate}

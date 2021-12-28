@@ -150,7 +150,6 @@ function Detail({ history }) {
             </Button>
           </Row>
           <MovieModal
-            title="Edit movie"
             visible={isModalVisible}
             onCancel={handleCancel}
             onOk={handleEdit}

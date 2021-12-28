@@ -13,16 +13,18 @@ import {
 } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
+function MovieModal({ visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(movie?.rating / 2);
   const [form] = Form.useForm();
+
+  const isEdit = movie;
 
   const handleOk = () => {
     form
       .validateFields()
       .then(values => {
         values = { ...values, rating: rating * 2 };
-        if (!movie) {
+        if (!isEdit) {
           onCreate(values);
         } else {
           onOk(values);
@@ -38,7 +40,7 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
 
   return (
     <Modal
-      title={title}
+      title={isEdit ? 'Edit movie' : 'Add new movie'}
       visible={visible}
       onCancel={onCancel}
       getContainer={true}
