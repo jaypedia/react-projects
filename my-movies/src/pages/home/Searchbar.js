@@ -2,7 +2,11 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Input, Select, Button, Form, Radio } from 'antd';
 import './Searchbar.css';
-import { ReloadOutlined } from '@ant-design/icons';
+import {
+  ReloadOutlined,
+  SortAscendingOutlined,
+  SortDescendingOutlined,
+} from '@ant-design/icons';
 
 function Searchbar({ onSearch, filterGanre, sort, order, resetStates }) {
   const { Search } = Input;
@@ -46,8 +50,12 @@ function Searchbar({ onSearch, filterGanre, sort, order, resetStates }) {
             order(v?.target?.value);
           }}
         >
-          <Radio.Button value="asc">Ascending</Radio.Button>
-          <Radio.Button value="desc">Descending</Radio.Button>
+          <Radio.Button value="asc">
+            <SortAscendingOutlined />
+          </Radio.Button>
+          <Radio.Button value="desc">
+            <SortDescendingOutlined />
+          </Radio.Button>
         </Radio.Group>
       </Form.Item>
       <Form.Item>
