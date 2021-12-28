@@ -17,6 +17,25 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
   const [rating, setRating] = useState(movie?.rating / 2);
   const [form] = Form.useForm();
 
+  const handleOk = () => {
+    form
+      .validateFields()
+      .then(values => {
+        values = { ...values, rating: rating * 2 };
+        if (!movie) {
+          onCreate(values);
+        } else {
+          onOk(values);
+          values = { ...values, rating };
+          form.setFieldsValue(values);
+        }
+      })
+      .catch(info => {
+        console.log('Validate Failed:', info);
+      });
+    form.resetFields();
+  };
+
   return (
     <Modal
       title={title}
@@ -24,25 +43,7 @@ function MovieModal({ title, visible, onCancel, onCreate, movie, onOk }) {
       onCancel={onCancel}
       getContainer={true}
       okText="Done"
-      onOk={() => {
-        // 함수 따로 만들기
-        form
-          .validateFields()
-          .then(values => {
-            values = { ...values, rating: rating * 2 };
-            form.resetFields(); // 위치의 변경
-            if (!movie) {
-              onCreate(values);
-            } else {
-              onOk(values);
-              values = { ...values, rating };
-              form.setFieldsValue(values);
-            }
-          })
-          .catch(info => {
-            console.log('Validate Failed:', info);
-          });
-      }}
+      onOk={handleOk}
     >
       <Form form={form} initialValues={{ ...movie, rating }}>
         <Row gutter={20}>
