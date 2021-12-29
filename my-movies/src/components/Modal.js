@@ -34,8 +34,10 @@ function MovieModal({ visible, onCancel, onCreate, movie, onOk }) {
       })
       .catch(info => {
         console.log('Validate Failed:', info);
+      })
+      .finally(() => {
+        form.resetFields();
       });
-    form.resetFields();
   };
 
   return (
