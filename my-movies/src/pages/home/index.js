@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import { Pagination, Button, Row, Col } from 'antd';
+import { Pagination, Button, Row, Col, Modal } from 'antd';
 import MovieModal from '../../components/Modal';
 
 const PAGE_LIMIT = 4;
@@ -18,13 +18,18 @@ function Home() {
   const [_order, setOrder] = useState(undefined);
   const [total, setTotal] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isSearchModalVisible, setSearchIsModalVisible] = useState(false);
 
   const getMovies = async () => {
     setIsLoading(true);
     const response = await axios.get('http://localhost:4000/movies', {
       params: { title: inputValue, ganre, _page, _limit: PAGE_LIMIT },
     });
-    setMovie(response.data);
+    if (response.data.length) {
+      setMovie(response.data);
+    } else {
+      setSearchIsModalVisible(true);
+    }
     setIsLoading(false);
   };
 
@@ -101,6 +106,10 @@ function Home() {
     setIsModalVisible(false);
   };
 
+  const handleOk = () => {
+    setSearchIsModalVisible(false);
+  };
+
   return (
     <>
       <Row justify="center">
@@ -159,6 +168,15 @@ function Home() {
         onCancel={handleCancel}
         onCreate={handleCreate}
       />
+
+      <Modal
+        title="No result"
+        visible={isSearchModalVisible}
+        onOk={handleOk}
+        cancelButtonProps={{ disabled: true }}
+      >
+        <p>There is no such movie. Please enter another movie.</p>
+      </Modal>
     </>
   );
 }
