@@ -26,7 +26,9 @@ function Navbar() {
       }}
     >
       <Menu.Item key="logo">
-        <VideoCameraOutlined style={{ fontSize: '25px' }} />
+        <Link to="/main">
+          <VideoCameraOutlined style={{ fontSize: '25px' }} />
+        </Link>
       </Menu.Item>
 
       <Menu.Item key="my-movies">
