@@ -1,14 +1,13 @@
-.container {
+/* .container {
   padding: 60px 200px 60px 200px;
-  position: relative;
-}
+} */
 
-.movies {
+/* .movies {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 50px;
   margin: 50px 0 50px 0;
-}
+} */
 
 .loader {
   width: 100%;
@@ -20,27 +19,3 @@
   font-size: 25px;
   color: whitesmoke;
 }
-
-.ant-row {
-  width: 100%;
-}
-
-.ant-pagination {
-  display: flex;
-  justify-content: center;
-}
-
-.ant-btn.add-movies {
-  position: fixed;
-  right: 200px;
-}
-
-/*
-.ant-select.ant-select-lg {
-  margin-left: 30px;
-}
-
-.ant-btn.reload {
-  margin-left: 30px;
-}
-*/

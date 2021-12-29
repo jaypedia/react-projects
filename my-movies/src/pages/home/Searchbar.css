@@ -1,5 +1,0 @@
-.searchbar-form {
-  display: grid;
-  grid-template-columns: 10fr 3fr 3fr 3fr 1fr;
-  gap: 25px;
-}

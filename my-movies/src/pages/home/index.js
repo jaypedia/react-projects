@@ -3,7 +3,7 @@ import axios from 'axios';
 import Movie from './Movie';
 import './index.css';
 import Searchbar from './Searchbar';
-import { Pagination, Button } from 'antd';
+import { Pagination, Button, Row, Col } from 'antd';
 import MovieModal from '../../components/Modal';
 
 const PAGE_LIMIT = 4;
@@ -80,6 +80,7 @@ function Home() {
   };
 
   const addNewMoive = async values => {
+    console.log(values);
     try {
       await axios.post('http://localhost:4000/movies', values);
       getMovies();
@@ -101,50 +102,64 @@ function Home() {
   };
 
   return (
-    <section className="container">
-      <Searchbar
-        onSearch={setInputValue}
-        filterGanre={setGanre}
-        sort={setSort}
-        order={setOrder}
-        resetStates={handleResetStates}
-      />
+    <>
+      <Row justify="center">
+        <Col>
+          <Searchbar
+            onSearch={setInputValue}
+            filterGanre={setGanre}
+            sort={setSort}
+            order={setOrder}
+            resetStates={handleResetStates}
+          />
+        </Col>
+
+        <Col>
+          <Button
+            size="large"
+            style={{
+              backgroundColor: '#c5d2ec',
+              borderRadius: '20px',
+              fontWeight: 'bold',
+            }}
+            onClick={showModal}
+          >
+            Add new movie
+          </Button>
+        </Col>
+      </Row>
 
       {isLoading ? (
         <div className="loader">
-          <span className="loader__text">Loading...🎬</span>
+          <span>Loading...🎬</span>
         </div>
       ) : (
-        <div className="movies">
+        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
           {movies.map(movie => {
-            return <Movie key={movie.id} {...movie} />;
+            return (
+              <Col xs={24} sm={12} md={8} xl={6}>
+                <Movie key={movie.id} {...movie} />
+              </Col>
+            );
           })}
-        </div>
+        </Row>
       )}
-      <Pagination
-        defaultCurrent={1}
-        onChange={setPage}
-        total={total}
-        pageSize={PAGE_LIMIT}
-      />
-      <Button
-        className="add-movies"
-        size="large"
-        style={{
-          backgroundColor: '#c5d2ec',
-          borderRadius: '20px',
-          fontWeight: 'bold',
-        }}
-        onClick={showModal}
-      >
-        Add new movie
-      </Button>
+
+      <Row justify="center">
+        <Pagination
+          defaultCurrent={1}
+          onChange={setPage}
+          total={total}
+          pageSize={PAGE_LIMIT}
+        />
+      </Row>
+
       <MovieModal
         visible={isModalVisible}
         onCancel={handleCancel}
         onCreate={handleCreate}
       />
-    </section>
+    </>
   );
 }
 
