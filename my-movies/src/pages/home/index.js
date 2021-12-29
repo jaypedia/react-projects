@@ -49,10 +49,6 @@ function Home() {
     return () => (completed = true);
   }, [_sort, _order]);
 
-  useEffect(() => {
-    getMovies();
-  }, [inputValue, ganre, _page]);
-
   // For pagination
   useEffect(() => {
     let completed = false;
@@ -68,6 +64,10 @@ function Home() {
     getMovies();
     return () => (completed = true);
   }, [inputValue, ganre]);
+
+  useEffect(() => {
+    getMovies();
+  }, [inputValue, ganre, _page]);
 
   const handleResetStates = () => {
     setInputValue(undefined);
@@ -108,60 +108,63 @@ function Home() {
 
   const handleOk = () => {
     setSearchIsModalVisible(false);
+    handleResetStates();
   };
 
   return (
     <>
-      <Row justify="center">
-        <Col>
-          <Searchbar
-            onSearch={setInputValue}
-            filterGanre={setGanre}
-            sort={setSort}
-            order={setOrder}
-            resetStates={handleResetStates}
-          />
-        </Col>
+      <div className="container">
+        <Row justify="center" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+          <Col xl={16}>
+            <Searchbar
+              onSearch={setInputValue}
+              filterGanre={setGanre}
+              sort={setSort}
+              order={setOrder}
+              resetStates={handleResetStates}
+            />
+          </Col>
 
-        <Col>
-          <Button
-            size="large"
-            style={{
-              backgroundColor: '#c5d2ec',
-              borderRadius: '20px',
-              fontWeight: 'bold',
-            }}
-            onClick={showModal}
-          >
-            Add new movie
-          </Button>
-        </Col>
-      </Row>
-
-      {isLoading ? (
-        <div className="loader">
-          <span>Loading...🎬</span>
-        </div>
-      ) : (
-        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          {movies.map(movie => {
-            return (
-              <Col xs={24} sm={12} md={8} xl={6}>
-                <Movie key={movie.id} {...movie} />
-              </Col>
-            );
-          })}
+          <Col xl={2}>
+            <Button
+              size="large"
+              style={{
+                backgroundColor: '#c5d2ec',
+                borderRadius: '20px',
+                fontWeight: 'bold',
+              }}
+              onClick={showModal}
+            >
+              Add new movie
+            </Button>
+          </Col>
         </Row>
-      )}
 
-      <Row justify="center">
-        <Pagination
-          defaultCurrent={1}
-          onChange={setPage}
-          total={total}
-          pageSize={PAGE_LIMIT}
-        />
-      </Row>
+        {isLoading ? (
+          <div className="loader">
+            <span>Loading...🎬</span>
+          </div>
+        ) : (
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} className="movies">
+            {movies.map(movie => {
+              return (
+                <Col xs={24} sm={12} md={8} xl={6}>
+                  <Movie className="movie" key={movie.id} {...movie} />
+                </Col>
+              );
+            })}
+          </Row>
+        )}
+
+        <Row justify="center">
+          <Pagination
+            defaultCurrent={1}
+            onChange={setPage}
+            total={total}
+            pageSize={PAGE_LIMIT}
+          />
+        </Row>
+      </div>
 
       <MovieModal
         visible={isModalVisible}

@@ -102,7 +102,7 @@ function Detail({ history }) {
       ) : (
         <>
           <Row>
-            <Col span={4}>
+            <Col xs={24} md={4}>
               <div className="detail__img-director-ganre">
                 {movie.imageUrl ? (
                   <img
@@ -127,7 +127,7 @@ function Detail({ history }) {
                 </div>
               </div>
             </Col>
-            <Col span={20} style={{ padding: '20px' }}>
+            <Col xs={24} md={20} style={{ padding: '20px' }}>
               <Row>
                 <div className="detail__title-rating">
                   <Col span={21}>
