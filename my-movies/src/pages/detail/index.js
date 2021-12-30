@@ -5,6 +5,7 @@ import { Row, Col, Button, Modal } from 'antd';
 import { useParams } from 'react-router-dom';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import MovieModal from '../../components/Modal';
+import moment from 'moment';
 
 function Detail({ history }) {
   const params = useParams();
@@ -81,14 +82,13 @@ function Detail({ history }) {
   };
 
   const handleEdit = values => {
-    const time = Date.now();
-    // debugger;
-    console.log(values);
+    const lastModified = moment().format('MMM Do YY, h:mm:ss a');
     const modifiedMovie = {
       ...values,
-      time,
+      lastModified,
       imageUrl: values.upload?.file.response.url,
     };
+    console.log('modifiedMovie :', modifiedMovie);
     editMovie(modifiedMovie);
     setIsModalVisible(false);
   };
@@ -127,22 +127,20 @@ function Detail({ history }) {
                 </div>
               </div>
             </Col>
-            <Col xs={24} md={20} style={{ padding: '20px' }}>
-              <Row>
-                <div className="detail__title-rating">
-                  <Col span={21}>
-                    <h1 className="detail__title-year">
-                      {movie.title} ({movie.year})
-                    </h1>
-                  </Col>
-                  <Col span={3}>
-                    <h1 className="detail__rating">✿ {movie.rating}</h1>
-                  </Col>
-                </div>
+            <Col xs={24} md={19} className="detail__container">
+              <Row className="detail__title-rating">
+                <Col span={21} className="detail__title-year">
+                  {movie.title} ({movie.year})
+                </Col>
+                <Col span={3} className="detail__rating">
+                  ✿ {movie.rating}
+                </Col>
               </Row>
-              <Row>
-                <div className="detail__summary">{movie.description}</div>
-              </Row>
+              <Row className="detail__summary">{movie.description}</Row>
+              <Row>Created : {movie.created}</Row>
+              {movie.lastModified ? (
+                <Row>Last modified : {movie.lastModified}</Row>
+              ) : null}
             </Col>
             <Button onClick={showModal}>Edit</Button>
             <Button onClick={showDeleteConfirm} type="dashed">

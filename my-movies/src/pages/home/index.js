@@ -5,6 +5,7 @@ import './index.css';
 import Searchbar from './Searchbar';
 import { Pagination, Button, Row, Col, Modal } from 'antd';
 import MovieModal from '../../components/Modal';
+import moment from 'moment';
 
 const PAGE_LIMIT = 4;
 
@@ -95,10 +96,10 @@ function Home() {
   };
 
   const handleCreate = values => {
-    const time = Date.now();
+    const created = moment().format('MMM Do YY, h:mm:ss a');
     const newMoive = {
       ...values,
-      time,
+      created,
       imageUrl: values.upload?.file.response.url,
     };
     console.log('Added movie : ', newMoive);
