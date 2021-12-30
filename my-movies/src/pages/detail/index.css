@@ -27,6 +27,21 @@ img {
 
 @media screen and (max-width: 768px) {
   .detail {
-    padding: 30px;
+    padding: 10px;
+  }
+
+  .detail__container {
+    margin: 0;
+  }
+
+  .detail__title-rating {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .detail__summary {
+    font-size: 1.1rem;
+    padding: 10px;
   }
 }
