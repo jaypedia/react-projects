@@ -1,11 +1,4 @@
-# Learn how to use React
+# React projects
 
-### React app (CRUD practice)
-
-### Apple blog
-
-### Apple shop
-
-### My movies
-
-### Habit tracker
+## My movies
+- A website where you can save, sort, and search information about the movies you've seen
