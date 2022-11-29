@@ -1,18 +1,20 @@
-# My movies project
+# My movies
 
-### Learn React by building a movie app
+## Introduction
 
-##### 🔹프로젝트 기간 : 2021.12.2 ~ 12.31
+- 내가 본 영화의 각종 정보들을 저장하고, 정렬하고, 검색할 수 있는 웹 사이트
 
-##### 🔹사용 라이브러리 : Ant Design, Axios, Moment, Json server, React router dom
+- 프로젝트 기간 : 2021.12.2 ~ 12.31
 
-##### 🔹배포 : heroku
+- 라이브러리 : React, Ant Design, Axios, Moment, Json server, React router dom
 
----
+- 배포 : heroku
+
+
 
 ## Requirements
 
-### 🔷 **Home (List page)**
+### `Home page`
 
 #### Navigation bar
 
@@ -46,7 +48,7 @@
 
 - 페이지를 넘길 수 있다.
 
-### 🔷 **Detail page**
+### `Detail page`
 
 - 리스트 페이지에서 선택한 영화의 상세정보를 보여준다.
 - 해당 영화를 수정할 수 있다.
