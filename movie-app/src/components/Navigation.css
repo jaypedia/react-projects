@@ -1,0 +1,39 @@
+.nav {
+  z-index: 1;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 13px 27px -5px rgba(25, 25, 31, 0.9),
+    0 8px 16px -8px rgba(0, 0, 0, 0.9), 0 -6px 16px -6px rgba(0, 0, 0, 0.05);
+}
+
+.nav a {
+  color: #0c1c39;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  color: rgba(190, 246, 5);
+}
+
+@media screen and (max-width: 1090px) {
+  .nav {
+    left: initial;
+    top: initial;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.nav a:not(:last-child) {
+  margin-bottom: 20px;
+}
